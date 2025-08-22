@@ -23,23 +23,23 @@ app.use(helmet({
 app.use(cors());
 
 // Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'src', 'public')));
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'src', 'public', 'index.html'));
 });
 
 app.get('/documentation', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'documentation.html'));
+  res.sendFile(path.join(__dirname, 'src', 'public', 'documentation.html'));
 });
 
 app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+  res.sendFile(path.join(__dirname, 'src', 'public', 'contact.html'));
 });
 
 app.get('/blog', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'blog.html'));
+  res.sendFile(path.join(__dirname, 'src', 'public', 'blog.html'));
 });
 
 // API endpoint for blog posts
@@ -88,7 +88,7 @@ app.get('/api/blog-posts', (req, res) => {
 
 // 404 handler
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+  res.status(404).sendFile(path.join(__dirname, 'src', 'public', '404.html'));
 });
 
 // Error handler
