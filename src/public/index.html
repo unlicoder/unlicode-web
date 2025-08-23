@@ -67,7 +67,122 @@
         </div>
         
         <div class="hero-image">
-            <img src="https://via.placeholder.com/800x500/1f2937/ffffff?text=Unlicode+IDE+Interface" alt="Unlicode IDE Interface">
+            <div class="interactive-ide">
+                <div class="ide-container">
+                    <!-- IDE Interface Background -->
+                    <div class="ide-background">
+                        <!-- Top Bar -->
+                        <div class="ide-top-bar">
+                            <div class="ide-controls">
+                                <div class="control-dot red"></div>
+                                <div class="control-dot yellow"></div>
+                                <div class="control-dot green"></div>
+                            </div>
+                            <div class="ide-navigation">
+                                <i class="ph-arrow-left"></i>
+                                <i class="ph-arrow-right"></i>
+                            </div>
+                            <div class="ide-search">
+                                <i class="ph-magnifying-glass"></i>
+                                <span>unlicode</span>
+                            </div>
+                            <div class="ide-actions">
+                                <i class="ph-squares-four"></i>
+                                <i class="ph-square-half"></i>
+                                <i class="ph-square"></i>
+                                <i class="ph-gear"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Left Sidebar -->
+                        <div class="ide-sidebar">
+                            <div class="sidebar-item" data-tooltip="File Explorer - Browse your project files">
+                                <i class="ph-file-text"></i>
+                            </div>
+                            <div class="sidebar-item" data-tooltip="Search - Find files and code quickly">
+                                <i class="ph-magnifying-glass"></i>
+                            </div>
+                            <div class="sidebar-item" data-tooltip="Git - Version control integration">
+                                <i class="ph-git-branch"></i>
+                            </div>
+                            <div class="sidebar-item" data-tooltip="Problems - View errors and warnings">
+                                <i class="ph-warning"></i>
+                            </div>
+                            <div class="sidebar-item" data-tooltip="Settings - Configure your IDE">
+                                <i class="ph-gear"></i>
+                            </div>
+                            <div class="sidebar-item" data-tooltip="Account - Manage your profile">
+                                <i class="ph-user"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Main Content Area -->
+                        <div class="ide-main">
+                            <div class="ide-content">
+                                <div class="ide-cube">
+                                    <div class="cube-face front">
+                                        <div class="infinity-symbol">∞</div>
+                                    </div>
+                                </div>
+                                <div class="ide-shortcuts">
+                                    <div class="shortcut">Chat ⌘ L</div>
+                                    <div class="shortcut">Quick Edit ⌘ K</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Panel -->
+                        <div class="ide-right-panel">
+                            <div class="panel-header">
+                                <span>CHAT</span>
+                                <div class="panel-actions">
+                                    <i class="ph-plus"></i>
+                                    <i class="ph-arrow-clockwise"></i>
+                                    <i class="ph-gear"></i>
+                                    <i class="ph-x"></i>
+                                </div>
+                            </div>
+                            <div class="chat-content">
+                                <div class="agent-icon">
+                                    <i class="ph-monitor"></i>
+                                </div>
+                                <h3>SWE Agent</h3>
+                                <p class="coming-soon">Coming Soon</p>
+                                <p class="agent-description">We're working on something amazing. Stay tuned for the next generation of AI assistance.</p>
+                                <button class="waitlist-btn">Join Waitlist</button>
+                                <p class="waitlist-text">Be the first to know when we launch</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Bottom Status Bar -->
+                        <div class="ide-status-bar">
+                            <div class="status-item">
+                                <div class="status-icon blue"></div>
+                            </div>
+                            <div class="status-item">
+                                <i class="ph-x-circle"></i>
+                                <span>0</span>
+                            </div>
+                            <div class="status-item">
+                                <i class="ph-warning"></i>
+                                <span>0</span>
+                            </div>
+                            <div class="status-item">
+                                <i class="ph-circle"></i>
+                                <span>0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Interactive Tooltips -->
+                    <div class="ide-tooltip" id="ide-tooltip">
+                        <div class="tooltip-content">
+                            <h4 id="tooltip-title">Feature</h4>
+                            <p id="tooltip-description">Description of the feature</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
