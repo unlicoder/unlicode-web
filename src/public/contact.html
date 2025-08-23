@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Unlicode</title>
+    <meta name="description" content="Get in touch with the Unlicode team. We're here to help with your questions and feedback.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/icons.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="ph-code-bold"></i>
+                <span>Unlicode</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/#features" class="nav-link">Features</a>
+                <a href="/#pricing" class="nav-link">Pricing</a>
+                <a href="/#faq" class="nav-link">FAQ</a>
+                <a href="/documentation" class="nav-link">Documentation</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/contact" class="nav-link active">Contact</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Header -->
+    <section class="contact-header">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>Have questions about Unlicode? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-layout">
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h2>Send us a Message</h2>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name *</label>
+                                <input type="text" id="first-name" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name *</label>
+                                <input type="text" id="last-name" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="sales">Sales & Pricing</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="bug">Bug Report</option>
+                                <option value="feature">Feature Request</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Tell us how we can help you..."></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" id="newsletter">
+                                <span class="checkmark"></span>
+                                Subscribe to our newsletter for updates and insights
+                            </label>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="privacy" id="privacy" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a> *
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="ph-paper-plane-right"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-section">
+                    <h2>Contact Information</h2>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="ph-envelope"></i>
+                            </div>
+                            <div class="method-content">
+                                <h3>Email</h3>
+                                <p>hello@unlicode.dev</p>
+                                <span>We typically respond within 24 hours</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="ph-discord-logo"></i>
+                            </div>
+                            <div class="method-content">
+                                <h3>Discord Community</h3>
+                                <p>Join our Discord server</p>
+                                <span>Get real-time help and connect with other developers</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="ph-github-logo"></i>
+                            </div>
+                            <div class="method-content">
+                                <h3>GitHub</h3>
+                                <p>github.com/unlicode</p>
+                                <span>Report issues, request features, and contribute</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="ph-twitter-logo"></i>
+                            </div>
+                            <div class="method-content">
+                                <h3>Twitter</h3>
+                                <p>@unlicode_dev</p>
+                                <span>Follow us for updates and announcements</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="office-info">
+                        <h3>Office Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM PST</p>
+                        <p>Weekend: Available for urgent support</p>
+                    </div>
+                    
+                    <div class="support-info">
+                        <h3>Need Immediate Help?</h3>
+                        <p>Check our <a href="/documentation">documentation</a> or <a href="/#faq">FAQ section</a> for quick answers to common questions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Preview -->
+    <section class="faq-preview">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How do I get started with Unlicode?</h3>
+                    <p>Download Unlicode for your platform, install a local LLM, and start coding with unlimited AI assistance.</p>
+                    <a href="/documentation#quick-start" class="learn-more">Learn More <i class="ph-arrow-right"></i></a>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What hardware do I need?</h3>
+                    <p>Unlicode works on CPU, GPU, and HPU setups. We recommend at least 16GB RAM for optimal performance.</p>
+                    <a href="/documentation#performance" class="learn-more">Learn More <i class="ph-arrow-right"></i></a>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Is my code really private?</h3>
+                    <p>Yes! When using local LLMs, your code never leaves your machine. Everything is processed locally.</p>
+                    <a href="/documentation#privacy" class="learn-more">Learn More <i class="ph-arrow-right"></i></a>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can I use online LLMs too?</h3>
+                    <p>Absolutely! Unlicode supports both local and online LLMs. Choose based on your needs.</p>
+                    <a href="/documentation#local-llms" class="learn-more">Learn More <i class="ph-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="faq-cta">
+                <a href="/#faq" class="btn btn-secondary">View All FAQs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="ph-code-bold"></i>
+                        <span>Unlicode</span>
+                    </div>
+                    <p>Empowering developers with unlimited AI capabilities through local LLMs.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/documentation">Documentation</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/press">Press</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy">Privacy</a></li>
+                        <li><a href="/terms">Terms</a></li>
+                        <li><a href="/security">Security</a></li>
+                        <li><a href="/cookies">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Unlicode. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="ph-github-logo"></i></a>
+                    <a href="#"><i class="ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph-linkedin-logo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="ph-circle-notch"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Collect form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Show success message
+                submitBtn.innerHTML = '<i class="ph-check"></i> Message Sent!';
+                submitBtn.style.background = '#10b981';
+                
+                // Reset form
+                form.reset();
+                
+                // Show success notification
+                showNotification('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', 'success');
+                
+                // Reset button after delay
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            }, 2000);
+        });
+        
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="ph-${type === 'success' ? 'check-circle' : 'info'}"></i>
+                    <span>${message}</span>
+                </div>
+                <button class="notification-close" onclick="this.parentElement.remove()">
+                    <i class="ph-x"></i>
+                </button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+        
+        // Form validation
+        document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea').forEach(field => {
+            field.addEventListener('blur', function() {
+                validateField(this);
+            });
+            
+            field.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    validateField(this);
+                }
+            });
+        });
+        
+        function validateField(field) {
+            const value = field.value.trim();
+            const isRequired = field.hasAttribute('required');
+            
+            // Remove existing error state
+            field.classList.remove('error');
+            const existingError = field.parentNode.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            // Validate required fields
+            if (isRequired && !value) {
+                showFieldError(field, 'This field is required');
+                return false;
+            }
+            
+            // Validate email
+            if (field.type === 'email' && value && !isValidEmail(value)) {
+                showFieldError(field, 'Please enter a valid email address');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function showFieldError(field, message) {
+            field.classList.add('error');
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = message;
+            field.parentNode.appendChild(errorDiv);
+        }
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 100;
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

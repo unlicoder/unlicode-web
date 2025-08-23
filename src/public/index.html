@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlicode - The New Way to Build with AI Agents</title>
+    <meta name="description" content="Unlicode enables unlimited prompts and full privacy using local LLMs.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        NEW + v1.0.0 is now live on GitHub. <a href="https://github.com/unlicode/unlicode" target="_blank">Check it out!</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">Unlicode</a>
+            
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="/documentation">Documentation</a>
+                <a href="/blog">Blog</a>
+                <a href="/contact">Contact</a>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="search-bar">
+                    <i class="ph-magnifying-glass"></i>
+                    <input type="text" class="search-input" placeholder="Search documentation...">
+                </div>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="ph-sun" id="theme-icon"></i>
+                </button>
+                <button class="icon-button">📥</button>
+                <button class="icon-button">🐙</button>
+                <button class="icon-button">💬</button>
+                <div class="burger-menu">
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>
+                <span class="hero-line-1">Unlicode is the new way</span>
+                <span class="hero-line-2">to build with AI agents.</span>
+            </h1>
+            <p>Unlicode enables unlimited prompts and full privacy using local LLMs.</p>
+            <button class="download-button">
+                <i class="ph-rocket"></i>
+                Unlock Early Access
+            </button>
+        </div>
+        
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/800x500/1f2937/ffffff?text=Unlicode+IDE+Interface" alt="Unlicode IDE Interface">
+        </div>
+    </section>
+
+    <!-- Featured In Section -->
+    <section class="featured">
+        <div class="container">
+            <h3 class="section-subtitle">Featured In</h3>
+            <div class="featured-logos">
+                <div class="logo-item">TechCrunch</div>
+                <div class="logo-item">Wired</div>
+                <div class="logo-item">The Verge</div>
+                <div class="logo-item">Ars Technica</div>
+                <div class="logo-item">Hacker News</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Developers Say</h2>
+            <div class="testimonials-carousel" id="testimonials-carousel">
+                <div class="testimonial active">
+                    <div class="testimonial-content">
+                        <p>"Unlicode transformed our development workflow. We're now running 10x more AI prompts without worrying about token limits or costs."</p>
+                        <div class="testimonial-author">
+                            <strong>Sarah Chen</strong>
+                            <span>Senior Developer at TechFlow</span>
+                        </div>
+                        <div class="testimonial-results">
+                            <span class="result-badge">10x More Prompts</span>
+                            <span class="result-badge">$0 Token Costs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"The local LLM integration is game-changing. Our code never leaves our infrastructure, and the performance is incredible."</p>
+                        <div class="testimonial-author">
+                            <strong>Marcus Rodriguez</strong>
+                            <span>CTO at SecureDev</span>
+                        </div>
+                        <div class="testimonial-results">
+                            <span class="result-badge">100% Privacy</span>
+                            <span class="result-badge">2x Faster</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Finally, an IDE that understands the future of AI development. Unlimited tokens with local models is exactly what we needed."</p>
+                        <div class="testimonial-author">
+                            <strong>Alex Thompson</strong>
+                            <span>AI Researcher at ML Labs</span>
+                        </div>
+                        <div class="testimonial-results">
+                            <span class="result-badge">Unlimited Tokens</span>
+                            <span class="result-badge">Local Control</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- IDE with Agent Section -->
+    <section class="ide-agent">
+        <div class="container">
+            <h2 class="section-title">IDE with Agent Integration</h2>
+            <div class="agent-cards">
+                <div class="agent-card">
+                    <div class="card-icon">
+                        <i class="ph-infinity"></i>
+                    </div>
+                    <h3>Unlimited Prompts</h3>
+                    <p>Run as many AI prompts as you need with no restrictions or token limits. Your development workflow is never interrupted.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="card-icon">
+                        <i class="ph-cpu"></i>
+                    </div>
+                    <h3>Local or Online LLMs</h3>
+                    <p>Choose from Qwen Coder, AIR M1, OpenRouter, Claude, or run your own local models for complete flexibility.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="card-icon">
+                        <i class="ph-rocket"></i>
+                    </div>
+                    <h3>Optimized Performance</h3>
+                    <p>Optimized for CPU, GPU, and HPU setups with higher throughput and efficient resource utilization.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="card-icon">
+                        <i class="ph-shield-check"></i>
+                    </div>
+                    <h3>Complete Privacy</h3>
+                    <p>Your code, prompts, and context never leave your machine. Full security and privacy guaranteed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph-cpu"></i>
+                    </div>
+                    <h3>Local LLM Optimization</h3>
+                    <p>Higher throughput and optimized performance on all setups - CPU, GPU, and HPU configurations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph-robot"></i>
+                    </div>
+                    <h3>SWE Agent</h3>
+                    <p>Full support for top-ranked LLMs, both online and local, with seamless integration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph-lock"></i>
+                    </div>
+                    <h3>Privacy & Security</h3>
+                    <p>Code and context never leave your machine, ensuring complete privacy and security.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph-database"></i>
+                    </div>
+                    <h3>Free LLM Provider Directory</h3>
+                    <p>Discover, compare, and connect with free LLM providers to expand your AI capabilities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph-github-logo"></i>
+                    </div>
+                    <h3>Open Source & Community Driven</h3>
+                    <p>Built by developers, for developers. Contribute, customize, and shape the future of AI-powered development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Statement Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="mission-content">
+                <h2>Empowering Developers to Work Freely</h2>
+                <p>Our mission is to democratize AI-powered development by providing unlimited access to local LLMs. We believe every developer should have the freedom to explore, experiment, and create without artificial limitations or privacy concerns.</p>
+                <div class="mission-stats">
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Unlimited Tokens</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Privacy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Cost</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <div class="price">$0<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="ph-check"></i> Basic IDE features</li>
+                        <li><i class="ph-check"></i> Local LLM support</li>
+                        <li><i class="ph-check"></i> Community support</li>
+                        <li><i class="ph-check"></i> Open source access</li>
+                    </ul>
+                    <button class="btn btn-outline">Get Started</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Recommended</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="price">$19<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="ph-check"></i> Everything in Free</li>
+                        <li><i class="ph-check"></i> Unlimited prompts</li>
+                        <li><i class="ph-check"></i> Advanced AI features</li>
+                        <li><i class="ph-check"></i> Priority support</li>
+                        <li><i class="ph-check"></i> Custom integrations</li>
+                    </ul>
+                    <button class="btn btn-primary">Start Pro Trial</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">Custom</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="ph-check"></i> Everything in Pro</li>
+                        <li><i class="ph-check"></i> Team collaboration</li>
+                        <li><i class="ph-check"></i> Advanced security</li>
+                        <li><i class="ph-check"></i> Dedicated support</li>
+                        <li><i class="ph-check"></i> Custom deployment</li>
+                    </ul>
+                    <button class="btn btn-outline">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How does unlimited tokens work?</h3>
+                        <i class="ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Unlicode runs AI models locally on your machine, so there are no external API calls or token limits. You can run as many prompts as your hardware can handle.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What hardware do I need?</h3>
+                        <i class="ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Unlicode works on CPU, GPU, and HPU setups. For optimal performance, we recommend at least 16GB RAM and a modern multi-core processor.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is my code really private?</h3>
+                        <i class="ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! When using local LLMs, your code, prompts, and context never leave your machine. Everything is processed locally for complete privacy.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I use online LLMs too?</h3>
+                        <i class="ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! Unlicode supports both local and online LLMs. You can choose based on your needs - local for privacy, online for convenience.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I get started?</h3>
+                        <i class="ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Download Unlicode, install your preferred local LLM, and start coding! Check our documentation for detailed setup guides.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is it really free?</h3>
+                        <i class="ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! The core Unlicode IDE is completely free and open source. Pro features are available for advanced users who want additional capabilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Community Section -->
+    <section class="community">
+        <div class="container">
+            <h2 class="section-title">Join Our Community</h2>
+            <p class="section-subtitle">Stay updated on features, releases, and events</p>
+            <div class="community-links">
+                <a href="#" class="community-link">
+                    <i class="ph-github-logo"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="#" class="community-link">
+                    <i class="ph-discord-logo"></i>
+                    <span>Discord</span>
+                </a>
+                <a href="#" class="community-link">
+                    <i class="ph-twitter-logo"></i>
+                    <span>Twitter</span>
+                </a>
+                <a href="#" class="community-link">
+                    <i class="ph-youtube-logo"></i>
+                    <span>YouTube</span>
+                </a>
+                <a href="#" class="community-link">
+                    <i class="ph-medium-logo"></i>
+                    <span>Medium</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="ph-code-bold"></i>
+                        <span>Unlicode</span>
+                    </div>
+                    <p>Empowering developers with unlimited AI capabilities through local LLMs.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="/documentation">Documentation</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/press">Press</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy">Privacy</a></li>
+                        <li><a href="/terms">Terms</a></li>
+                        <li><a href="/security">Security</a></li>
+                        <li><a href="/cookies">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Unlicode. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="ph-github-logo"></i></a>
+                    <a href="#"><i class="ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph-linkedin-logo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Unlicode</title>
+    <meta name="description" content="The page you're looking for doesn't exist.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/icons.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 2rem;
+        }
+        
+        .error-content {
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        .error-icon {
+            font-size: 8rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        
+        .error-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .error-message {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .error-actions .btn {
+            min-width: 150px;
+        }
+        
+        .error-suggestions {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            backdrop-filter: blur(20px);
+        }
+        
+        .error-suggestions h3 {
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .suggestions-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .suggestions-list li {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .suggestions-list li:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .suggestions-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .suggestions-list a:hover {
+            color: var(--primary-dark);
+        }
+        
+        @media (max-width: 768px) {
+            .error-title {
+                font-size: 3rem;
+            }
+            
+            .error-icon {
+                font-size: 6rem;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .error-actions .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .suggestions-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .error-title {
+                font-size: 2.5rem;
+            }
+            
+            .error-icon {
+                font-size: 5rem;
+            }
+            
+            .error-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="ph-code-bold"></i>
+                <span>Unlicode</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/#features" class="nav-link">Features</a>
+                <a href="/#pricing" class="nav-link">Pricing</a>
+                <a href="/#faq" class="nav-link">FAQ</a>
+                <a href="/documentation" class="nav-link">Documentation</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Error Page Content -->
+    <main class="error-page">
+        <div class="error-content">
+            <div class="error-icon">
+                <i class="ph-warning-circle"></i>
+            </div>
+            
+            <h1 class="error-title">404</h1>
+            <p class="error-message">
+                Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.
+            </p>
+            
+            <div class="error-actions">
+                <a href="/" class="btn btn-primary">
+                    <i class="ph-house"></i>
+                    Go Home
+                </a>
+                <a href="/documentation" class="btn btn-secondary">
+                    <i class="ph-book-open"></i>
+                    Documentation
+                </a>
+            </div>
+            
+            <div class="error-suggestions">
+                <h3>Looking for something specific?</h3>
+                <ul class="suggestions-list">
+                    <li>
+                        <a href="/#features">
+                            <i class="ph-star"></i>
+                            Features
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/#pricing">
+                            <i class="ph-currency-dollar"></i>
+                            Pricing
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog">
+                            <i class="ph-newspaper"></i>
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contact">
+                            <i class="ph-envelope"></i>
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

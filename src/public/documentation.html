@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Unlicode</title>
+    <meta name="description" content="Complete documentation for Unlicode IDE with setup guides, API reference, and examples.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/icons.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="documentation.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="ph-code-bold"></i>
+                <span>Unlicode</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/#features" class="nav-link">Features</a>
+                <a href="/#pricing" class="nav-link">Pricing</a>
+                <a href="/#faq" class="nav-link">FAQ</a>
+                <a href="/documentation" class="nav-link active">Documentation</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Documentation Header -->
+    <section class="doc-header">
+        <div class="container">
+            <h1>Documentation</h1>
+            <p>Get started with Unlicode IDE and learn how to harness the power of local LLMs</p>
+        </div>
+    </section>
+
+    <!-- Documentation Content -->
+    <section class="doc-content">
+        <div class="container">
+            <div class="doc-layout">
+                <!-- Sidebar -->
+                <aside class="doc-sidebar">
+                    <nav class="doc-nav">
+                        <h3>Getting Started</h3>
+                        <ul>
+                            <li><a href="#installation">Installation</a></li>
+                            <li><a href="#quick-start">Quick Start</a></li>
+                            <li><a href="#configuration">Configuration</a></li>
+                        </ul>
+                        
+                        <h3>Core Features</h3>
+                        <ul>
+                            <li><a href="#local-llms">Local LLMs</a></li>
+                            <li><a href="#swe-agent">SWE Agent</a></li>
+                            <li><a href="#privacy">Privacy & Security</a></li>
+                        </ul>
+                        
+                        <h3>Advanced</h3>
+                        <ul>
+                            <li><a href="#custom-models">Custom Models</a></li>
+                            <li><a href="#performance">Performance Tuning</a></li>
+                            <li><a href="#api-reference">API Reference</a></li>
+                        </ul>
+                        
+                        <h3>Examples</h3>
+                        <ul>
+                            <li><a href="#code-generation">Code Generation</a></li>
+                            <li><a href="#code-review">Code Review</a></li>
+                            <li><a href="#debugging">Debugging</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="doc-main">
+                    <!-- Installation Section -->
+                    <section id="installation" class="doc-section">
+                        <h2>Installation</h2>
+                        <p>Unlicode is available for Windows, macOS, and Linux. Choose your platform below:</p>
+                        
+                        <div class="install-options">
+                            <div class="install-option">
+                                <h3><i class="ph-apple-logo"></i> macOS</h3>
+                                <div class="install-steps">
+                                    <div class="step">
+                                        <span class="step-number">1</span>
+                                        <p>Download the latest .dmg file</p>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">2</span>
+                                        <p>Drag Unlicode to Applications folder</p>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">3</span>
+                                        <p>Launch from Applications</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary">Download for macOS</button>
+                            </div>
+                            
+                            <div class="install-option">
+                                <h3><i class="ph-linux-logo"></i> Linux</h3>
+                                <div class="install-steps">
+                                    <div class="step">
+                                        <span class="step-number">1</span>
+                                        <p>Download the .AppImage file</p>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">2</span>
+                                        <p>Make it executable: <code>chmod +x Unlicode.AppImage</code></p>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">3</span>
+                                        <p>Run: <code>./Unlicode.AppImage</code></p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary">Download for Linux</button>
+                            </div>
+                            
+                            <div class="install-option">
+                                <h3><i class="ph-windows-logo"></i> Windows</h3>
+                                <div class="install-steps">
+                                    <div class="step">
+                                        <span class="step-number">1</span>
+                                        <p>Download the .exe installer</p>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">2</span>
+                                        <p>Run the installer as administrator</p>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">3</span>
+                                        <p>Follow the installation wizard</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary">Download for Windows</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Quick Start Section -->
+                    <section id="quick-start" class="doc-section">
+                        <h2>Quick Start</h2>
+                        <p>Get up and running with Unlicode in minutes:</p>
+                        
+                        <div class="quick-start-steps">
+                            <div class="step-card">
+                                <div class="step-icon">
+                                    <i class="ph-download"></i>
+                                </div>
+                                <h3>1. Install Unlicode</h3>
+                                <p>Download and install Unlicode for your operating system using the instructions above.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <div class="step-icon">
+                                    <i class="ph-cpu"></i>
+                                </div>
+                                <h3>2. Set Up Local LLM</h3>
+                                <p>Choose and download a local language model. We recommend starting with Qwen Coder or AIR M1.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <div class="step-icon">
+                                    <i class="ph-code"></i>
+                                </div>
+                                <h3>3. Start Coding</h3>
+                                <p>Open a project, write some code, and use Cmd/Ctrl + K to activate the AI assistant.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="code-example">
+                            <h3>Basic Usage Example</h3>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Python</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">
+                                        <i class="ph-copy"></i>
+                                    </button>
+                                </div>
+                                <pre><code># Open Unlicode and create a new Python file
+# Type your question or request in the AI panel
+# Example: "Write a function to calculate fibonacci numbers"
+
+def fibonacci(n):
+    """Calculate the nth Fibonacci number."""
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Use Cmd/Ctrl + K to ask the AI to:
+# - Optimize this function
+# - Add error handling
+# - Write tests
+# - Explain the algorithm</code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Local LLMs Section -->
+                    <section id="local-llms" class="doc-section">
+                        <h2>Local LLMs</h2>
+                        <p>Unlicode supports a wide range of local language models. Here are our recommended options:</p>
+                        
+                        <div class="llm-grid">
+                            <div class="llm-card">
+                                <h3>Qwen Coder</h3>
+                                <p>Excellent for code generation and understanding. Good performance on CPU.</p>
+                                <ul>
+                                    <li><strong>Size:</strong> 7B parameters</li>
+                                    <li><strong>RAM:</strong> 8GB minimum</li>
+                                    <li><strong>Performance:</strong> Fast inference</li>
+                                </ul>
+                                <a href="#" class="btn btn-outline">Download Model</a>
+                            </div>
+                            
+                            <div class="llm-card">
+                                <h3>AIR M1</h3>
+                                <p>Optimized for Apple Silicon. Excellent performance on M1/M2 Macs.</p>
+                                <ul>
+                                    <li><strong>Size:</strong> 3B parameters</li>
+                                    <li><strong>RAM:</strong> 4GB minimum</li>
+                                    <li><strong>Performance:</strong> Native M1 optimization</li>
+                                </ul>
+                                <a href="#" class="btn btn-outline">Download Model</a>
+                            </div>
+                            
+                            <div class="llm-card">
+                                <h3>CodeLlama</h3>
+                                <p>Meta's code-focused model. Great for complex programming tasks.</p>
+                                <ul>
+                                    <li><strong>Size:</strong> 7B parameters</li>
+                                    <li><strong>RAM:</strong> 16GB minimum</li>
+                                    <li><strong>Performance:</strong> High quality output</li>
+                                </ul>
+                                <a href="#" class="btn btn-outline">Download Model</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SWE Agent Section -->
+                    <section id="swe-agent" class="doc-section">
+                        <h2>SWE Agent Integration</h2>
+                        <p>Unlicode includes a powerful SWE (Software Engineering) Agent that can help with complex development tasks:</p>
+                        
+                        <div class="agent-features">
+                            <div class="feature-item">
+                                <i class="ph-robot"></i>
+                                <h3>Code Generation</h3>
+                                <p>Generate complete functions, classes, and modules based on your specifications.</p>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <i class="ph-magnifying-glass"></i>
+                                <h3>Code Review</h3>
+                                <p>Get detailed feedback on your code quality, security, and best practices.</p>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <i class="ph-bug"></i>
+                                <h3>Debugging</h3>
+                                <p>Identify and fix bugs with intelligent error analysis and suggestions.</p>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <i class="ph-arrows-clockwise"></i>
+                                <h3>Refactoring</h3>
+                                <p>Improve code structure and readability with AI-powered refactoring suggestions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="code-example">
+                            <h3>SWE Agent Commands</h3>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Commands</span>
+                                </div>
+                                <pre><code># Available SWE Agent commands:
+
+/explain    - Explain the selected code
+/optimize   - Optimize for performance
+/refactor   - Suggest refactoring improvements
+/review     - Code review with best practices
+/test       - Generate unit tests
+/debug      - Help debug issues
+/document   - Generate documentation
+/security   - Security audit</code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Privacy Section -->
+                    <section id="privacy" class="doc-section">
+                        <h2>Privacy & Security</h2>
+                        <p>Your privacy is our top priority. Here's how Unlicode protects your data:</p>
+                        
+                        <div class="privacy-features">
+                            <div class="privacy-item">
+                                <i class="ph-shield-check"></i>
+                                <h3>Local Processing</h3>
+                                <p>All AI processing happens on your machine. Your code never leaves your computer.</p>
+                            </div>
+                            
+                            <div class="privacy-item">
+                                <i class="ph-lock"></i>
+                                <h3>No Data Collection</h3>
+                                <p>We don't collect, store, or transmit any of your code, prompts, or personal data.</p>
+                            </div>
+                            
+                            <div class="privacy-item">
+                                <i class="ph-eye-slash"></i>
+                                <h3>Complete Anonymity</h3>
+                                <p>Use Unlicode without creating accounts or providing personal information.</p>
+                            </div>
+                            
+                            <div class="privacy-item">
+                                <i class="ph-database"></i>
+                                <h3>Offline Capable</h3>
+                                <p>Once you have local models, Unlicode works completely offline.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="security-note">
+                            <h3>Security Best Practices</h3>
+                            <ul>
+                                <li>Keep your local LLM models updated</li>
+                                <li>Use trusted model sources</li>
+                                <li>Regularly update Unlicode</li>
+                                <li>Monitor system resources</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Performance Section -->
+                    <section id="performance" class="doc-section">
+                        <h2>Performance Tuning</h2>
+                        <p>Optimize Unlicode for your hardware setup:</p>
+                        
+                        <div class="performance-tips">
+                            <div class="tip-card">
+                                <h3>CPU Optimization</h3>
+                                <ul>
+                                    <li>Use smaller models (3B-7B parameters)</li>
+                                    <li>Enable CPU threading optimization</li>
+                                    <li>Close unnecessary applications</li>
+                                    <li>Use SSD storage for models</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tip-card">
+                                <h3>GPU Acceleration</h3>
+                                <ul>
+                                    <li>Install CUDA drivers (NVIDIA)</li>
+                                    <li>Use Metal Performance Shaders (Apple)</li>
+                                    <li>Enable GPU memory optimization</li>
+                                    <li>Use larger models for better quality</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tip-card">
+                                <h3>Memory Management</h3>
+                                <ul>
+                                    <li>Close unused browser tabs</li>
+                                    <li>Monitor RAM usage</li>
+                                    <li>Use model quantization</li>
+                                    <li>Restart Unlicode if needed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="ph-code-bold"></i>
+                        <span>Unlicode</span>
+                    </div>
+                    <p>Empowering developers with unlimited AI capabilities through local LLMs.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/documentation">Documentation</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/press">Press</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy">Privacy</a></li>
+                        <li><a href="/terms">Terms</a></li>
+                        <li><a href="/security">Security</a></li>
+                        <li><a href="/cookies">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Unlicode. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="ph-github-logo"></i></a>
+                    <a href="#"><i class="ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph-linkedin-logo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Copy code functionality
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block');
+            const code = codeBlock.querySelector('code').textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const icon = button.querySelector('i');
+                icon.className = 'ph-check';
+                button.style.background = '#10b981';
+                
+                setTimeout(() => {
+                    icon.className = 'ph-copy';
+                    button.style.background = '';
+                }, 2000);
+            });
+        }
+        
+        // Smooth scrolling for documentation navigation
+        document.querySelectorAll('.doc-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 120;
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Highlight current section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.doc-section');
+            const navLinks = document.querySelectorAll('.doc-nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
