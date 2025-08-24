@@ -82,6 +82,36 @@ body {
   padding-top: 0; /* Will be adjusted by JavaScript for header height */
 }
 
+/* Ensure proper spacing for fixed header */
+body {
+  padding-top: 0;
+}
+
+/* Hero section positioning */
+.hero {
+  margin-top: 0;
+  padding-top: 2rem;
+  /* Ensure hero starts immediately below the fixed header */
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure the first section (hero) flows naturally below the header */
+.hero:first-of-type {
+  margin-top: 0;
+}
+
+/* Additional spacing adjustments for better visual flow */
+.hero + .ide-agent {
+  margin-top: 0;
+  padding-top: 4rem;
+}
+
+/* Ensure smooth transition from hero to next section */
+.hero {
+  border-bottom: 1px solid transparent;
+}
+
 /* Theme Toggle Button - Replaced by modern header component */
 
 /* Smooth Transitions for All Elements */
@@ -189,10 +219,13 @@ p {
 
 /* Hero Section */
 .hero {
-  padding: 6rem 2rem 6rem;
+  padding: 2rem 2rem 6rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+  margin-top: 0;
+  /* Ensure hero starts right below the header */
+  z-index: 1;
 }
 
 .hero::before {
@@ -996,7 +1029,7 @@ p {
     }
     
     .hero {
-        padding: 6rem 1rem 3rem;
+        padding: 2rem 1rem 3rem;
     }
     
     /* IDE Responsive Layout */
