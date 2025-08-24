@@ -1320,16 +1320,17 @@ p {
     border: 2px solid #666;
 }
 
-.infinity-symbol {
-    font-size: 48px;
-    color: #00d4ff;
-    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-    animation: glow 2s ease-in-out infinite alternate;
+.cube-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5));
+    animation: logo-glow 2s ease-in-out infinite alternate;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
-    to { text-shadow: 0 0 30px rgba(0, 212, 255, 0.8), 0 0 40px rgba(0, 212, 255, 0.3); }
+@keyframes logo-glow {
+    from { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)); }
+    to { filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.8), 0 0 40px rgba(0, 212, 255, 0.3)); }
 }
 
 .ide-shortcuts {
