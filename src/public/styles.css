@@ -951,34 +951,59 @@ p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-  
-  .search-input {
-    width: 150px;
-  }
-  
-  .agent-cards,
-  .features-grid,
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .mission-stats {
-    grid-template-columns: 1fr;
-  }
-  
-  .community-links {
-    gap: 1rem;
-  }
-  
-  .hero {
-    padding: 6rem 1rem 3rem;
-  }
-  
-  .featured,
-  .testimonials,
+    .nav-links {
+        display: none;
+    }
+    
+    .search-input {
+        width: 150px;
+    }
+    
+    .agent-cards,
+    .features-grid,
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mission-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .community-links {
+        gap: 1rem;
+    }
+    
+    .hero {
+        padding: 6rem 1rem 3rem;
+    }
+    
+    /* IDE Responsive Layout */
+    .ide-background {
+        grid-template-areas: 
+            "top"
+            "main"
+            "sidebar"
+            "right"
+            "status";
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px auto auto auto 30px;
+    }
+    
+    .ide-sidebar {
+        flex-direction: row;
+        padding: 20px;
+        gap: 20px;
+        border-right: none;
+        border-bottom: 1px solid #404040;
+    }
+    
+    .ide-right-panel {
+        border-left: none;
+        border-top: 1px solid #404040;
+    }
+    
+    .featured,
+    .testimonials,
   .ide-agent,
   .features,
   .mission,
@@ -1143,10 +1168,18 @@ p {
     position: relative;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     min-height: 500px;
+    display: grid;
+    grid-template-areas: 
+        "top top top"
+        "sidebar main right"
+        "status status status";
+    grid-template-columns: 60px 1fr 280px;
+    grid-template-rows: 60px 1fr 30px;
 }
 
 /* Top Bar */
 .ide-top-bar {
+    grid-area: top;
     display: flex;
     align-items: center;
     padding: 12px 20px;
@@ -1212,11 +1245,7 @@ p {
 
 /* Left Sidebar */
 .ide-sidebar {
-    position: absolute;
-    left: 0;
-    top: 60px;
-    width: 60px;
-    height: calc(100% - 120px);
+    grid-area: sidebar;
     background: #252525;
     border-right: 1px solid #404040;
     display: flex;
@@ -1262,7 +1291,7 @@ p {
 
 /* Main Content Area */
 .ide-main {
-    margin-left: 60px;
+    grid-area: main;
     padding: 40px;
     display: flex;
     align-items: center;
@@ -1320,11 +1349,7 @@ p {
 
 /* Right Panel */
 .ide-right-panel {
-    position: absolute;
-    right: 0;
-    top: 60px;
-    width: 280px;
-    height: calc(100% - 120px);
+    grid-area: right;
     background: #252525;
     border-left: 1px solid #404040;
 }
@@ -1416,10 +1441,7 @@ p {
 
 /* Bottom Status Bar */
 .ide-status-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    grid-area: status;
     height: 30px;
     background: #2a2a2a;
     border-top: 1px solid #404040;
