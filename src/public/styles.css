@@ -70,25 +70,9 @@
   --border-color: #334155;
 }
 
-/* Dark theme specific styles for download button */
-[data-theme="dark"] .download-button {
-  background: #1a1a1a;
-  border-color: #404040;
-}
+/* Remove dark theme button styles */
 
-[data-theme="dark"] .download-button::before {
-  background: linear-gradient(135deg, #404040, #525252, #404040);
-}
-
-[data-theme="dark"] .download-button:hover::before {
-  background: linear-gradient(135deg, #525252, #666666, #525252);
-  box-shadow: 0 0 20px rgba(64, 64, 64, 0.5);
-}
-
-[data-theme="dark"] .download-button:focus::before {
-  background: linear-gradient(135deg, #3b82f6, #60a5fa, #3b82f6);
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
-}
+/* Remove remaining dark theme references */
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -324,174 +308,31 @@ p {
   font-size: 1.125rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  box-shadow: none;
-  position: relative;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  letter-spacing: -0.01em;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  /* Remove unused CSS variables */
 }
 
-/* Add outer line effect using pseudo-element */
-.download-button::before {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  background: linear-gradient(135deg, #C8C8C8, #E0E0E0, #C8C8C8);
-  border-radius: 54px;
-  z-index: -1;
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
+/* Remove all pseudo-element effects */
 
-/* Add inner glow effect */
-.download-button::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  border-radius: 50px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
+/* Remove white overlay effect */
 
-.download-button:hover {
-  background: #2a2a2d;
-  border-color: #d4d4d4;
-  transform: translateY(-1px);
-  animation: buttonPulse 2s ease-in-out infinite;
-}
+/* Remove all hover effects */
 
-.download-button:hover::before {
-  top: -6px;
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
-  background: linear-gradient(135deg, #E0E0E0, #F0F0F0, #E0E0E0);
-  opacity: 1;
-  box-shadow: 0 0 20px rgba(200, 200, 200, 0.3);
-}
+/* Remove blue glow effect */
 
-/* Enhanced glow effect on hover */
-.download-button:hover {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.2), 0 0 60px rgba(59, 130, 246, 0.1);
-}
+/* Remove hover after effect */
 
-.download-button:hover::after {
-  opacity: 1;
-}
+/* Remove all active state effects */
 
-.download-button:active {
-  transform: translateY(0);
-  background: #1a1a1d;
-}
+/* Remove focus state effects */
 
-.download-button:active::before {
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  opacity: 0.6;
-}
+/* Remove all animations */
 
-/* Focus state for accessibility */
-.download-button:focus {
-  outline: none;
-  border-color: #3b82f6;
-}
+/* Remove ripple effect */
 
-.download-button:focus::before {
-  background: linear-gradient(135deg, #3b82f6, #60a5fa, #3b82f6);
-  opacity: 0.9;
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
-}
-
-/* Add a subtle pulse animation on hover */
-@keyframes buttonPulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.02);
-  }
-}
-
-/* Loading state animation */
-@keyframes buttonLoading {
-  0% {
-    transform: scale(0.98);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(0.98);
-    opacity: 0.8;
-  }
-}
-
-.download-button.loading {
-  animation: buttonLoading 1.5s ease-in-out infinite;
-  pointer-events: none;
-}
-
-/* Ripple effect for button clicks */
-.download-button {
-  position: relative;
-  overflow: hidden;
-}
-
-.download-button .ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(0);
-  animation: ripple 0.6s linear;
-  pointer-events: none;
-}
-
-@keyframes ripple {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-.download-button i {
-  transition: all 0.3s ease;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
-}
-
-.download-button:hover i {
-  transform: translateX(2px) scale(1.1);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-.download-button.loading i {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Remove icon animations */
 
 .hero-image {
   margin-top: 5rem;
