@@ -26,9 +26,7 @@ class ModernHeader {
             <div class="nav-logo">
               <a href="/" class="logo-link">
                 <div class="logo-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+                  <img src="images/unlicode-logo.png" alt="Unlicode Logo" width="32" height="32">
                 </div>
                 <span class="logo-text">Unlicode</span>
               </a>
