@@ -17,21 +17,7 @@ class ModernHeader {
   createHeader() {
     const headerHTML = `
       <header class="modern-header" id="modern-header">
-        <!-- Announcement Banner -->
-        <div class="announcement-banner">
-          <div class="announcement-content">
-            <span class="announcement-badge">NEW</span>
-            <span class="announcement-text">v1.0.0 is now live on GitHub</span>
-            <a href="https://github.com/unlicode/unlicode" target="_blank" class="announcement-link">
-              Check it out →
-            </a>
-          </div>
-          <button class="announcement-close" aria-label="Close announcement">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 6L6 18M6 6l12 12"/>
-            </svg>
-          </button>
-        </div>
+
 
         <!-- Main Navigation -->
         <nav class="nav-container">
@@ -52,8 +38,6 @@ class ModernHeader {
             <div class="nav-menu desktop-nav">
               <a href="#home" class="nav-link">Home</a>
               <a href="#features" class="nav-link">Features</a>
-              <a href="#pricing" class="nav-link">Pricing</a>
-              <a href="#faq" class="nav-link">FAQ</a>
               <a href="/documentation" class="nav-link">Documentation</a>
               <a href="/blog" class="nav-link">Blog</a>
               <a href="/contact" class="nav-link">Contact</a>
@@ -107,8 +91,6 @@ class ModernHeader {
           <div class="mobile-nav-content">
             <a href="#home" class="mobile-nav-link">Home</a>
             <a href="#features" class="mobile-nav-link">Features</a>
-            <a href="#pricing" class="mobile-nav-link">Pricing</a>
-            <a href="#faq" class="mobile-nav-link">FAQ</a>
             <a href="/documentation" class="mobile-nav-link">Documentation</a>
             <a href="/blog" class="mobile-nav-link">Blog</a>
             <a href="/contact" class="mobile-nav-link">Contact</a>
@@ -144,11 +126,7 @@ class ModernHeader {
       mobileMenuToggle.addEventListener('click', this.toggleMobileMenu.bind(this));
     }
 
-    // Announcement close
-    const announcementClose = document.querySelector('.announcement-close');
-    if (announcementClose) {
-      announcementClose.addEventListener('click', this.closeAnnouncement.bind(this));
-    }
+
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
@@ -237,13 +215,7 @@ class ModernHeader {
     }
   }
 
-  closeAnnouncement() {
-    const announcementBanner = document.querySelector('.announcement-banner');
-    if (announcementBanner) {
-      announcementBanner.style.display = 'none';
-      this.adjustBodyPadding();
-    }
-  }
+
 
   initializeTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
