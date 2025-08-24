@@ -34,8 +34,6 @@ class ModernHeader {
 
             <!-- Desktop Navigation -->
             <div class="nav-menu desktop-nav">
-              <a href="#home" class="nav-link">Home</a>
-              <a href="#features" class="nav-link">Features</a>
             </div>
 
             <!-- Action Buttons -->
@@ -84,8 +82,6 @@ class ModernHeader {
         <!-- Mobile Navigation -->
         <div class="mobile-nav" id="mobile-nav">
           <div class="mobile-nav-content">
-            <a href="#home" class="mobile-nav-link">Home</a>
-            <a href="#features" class="mobile-nav-link">Features</a>
             <div class="mobile-nav-actions">
               <button class="mobile-download-btn primary-btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
