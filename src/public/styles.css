@@ -61,49 +61,10 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+  padding-top: 0; /* Will be adjusted by JavaScript for header height */
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
-  background: var(--tertiary-bg);
-  border: 1px solid var(--border-light);
-  color: var(--text-secondary);
-  font-size: 1.25rem;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 8px;
-  transition: all var(--transition-speed) ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-}
-
-.theme-toggle:hover {
-  color: var(--text-primary);
-  background: var(--secondary-bg);
-  border-color: var(--accent-purple);
-  box-shadow: var(--glow-purple);
-  transform: scale(1.05);
-}
-
-.theme-toggle:active {
-  transform: scale(0.95);
-}
-
-/* Theme Icon Animations */
-.theme-toggle i {
-  transition: transform var(--transition-speed) ease;
-}
-
-.theme-toggle:hover i {
-  transform: rotate(15deg);
-}
-
-[data-theme="light"] .theme-toggle i {
-  transform: rotate(180deg);
-}
+/* Theme Toggle Button - Replaced by modern header component */
 
 /* Smooth Transitions for All Elements */
 * {
@@ -204,168 +165,13 @@ p {
   border-color: var(--accent-blue);
 }
 
-/* Navigation */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-light);
-  z-index: 1000;
-  transition: all 0.3s ease;
-}
+/* Navigation - Replaced by modern header component */
 
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  text-decoration: none;
-  background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.nav-links a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  position: relative;
-}
-
-.nav-links a:hover {
-  color: var(--text-primary);
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.search-bar {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.search-input {
-  background: var(--tertiary-bg);
-  border: 1px solid var(--border-light);
-  border-radius: 2rem;
-  padding: 0.5rem 1rem 0.5rem 2.5rem;
-  color: var(--text-primary);
-  font-size: 0.875rem;
-  width: 200px;
-  transition: all 0.3s ease;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: var(--accent-purple);
-  box-shadow: var(--glow-purple);
-  width: 250px;
-}
-
-.search-input::placeholder {
-  color: var(--text-muted);
-}
-
-.search-icon {
-  position: absolute;
-  left: 0.75rem;
-  color: var(--text-muted);
-  font-size: 1rem;
-}
-
-.icon-button {
-  background: var(--tertiary-bg);
-  border: 1px solid var(--border-light);
-  color: var(--text-secondary);
-  font-size: 1.25rem;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-}
-
-.icon-button:hover {
-  color: var(--text-primary);
-  background: var(--secondary-bg);
-  border-color: var(--accent-purple);
-  box-shadow: var(--glow-purple);
-}
-
-/* Announcement Banner */
-.announcement-banner {
-  background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-  color: white;
-  text-align: center;
-  padding: 0.75rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  position: relative;
-  overflow: hidden;
-}
-
-.announcement-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  animation: shimmer 3s infinite;
-}
-
-@keyframes shimmer {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-.announcement-banner a {
-  color: white;
-  text-decoration: underline;
-  font-weight: 600;
-}
+/* Announcement Banner - Replaced by modern header component */
 
 /* Hero Section */
 .hero {
-  padding: 10rem 2rem 6rem;
+  padding: 6rem 2rem 6rem;
   text-align: center;
   background: #EAE7E0;
   position: relative;
@@ -1182,43 +988,7 @@ p {
   }
 }
 
-/* Burger Menu */
-.burger-menu {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 4px;
-}
-
-.burger-line {
-  width: 25px;
-  height: 3px;
-  background: var(--text-primary);
-  transition: all 0.3s ease;
-}
-
-@media (max-width: 768px) {
-  .burger-menu {
-    display: flex;
-  }
-  
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    height: 100vh;
-    background: white;
-    flex-direction: column;
-    justify-content: center;
-    transition: right 0.3s ease;
-    z-index: 1001;
-  }
-  
-  .nav-links.active {
-    right: 0;
-  }
-}
+/* Burger Menu - Replaced by modern header component */
 
 /* Animations */
 @keyframes fadeInUp {
