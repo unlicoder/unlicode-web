@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlicode IDE - Interactive Development Environment</title>
+    <meta name="description" content="Experience the Unlicode IDE with interactive features and AI agent integration.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/icons.css">
+    <link rel="stylesheet" href="components/ui/header.css">
+    <link rel="stylesheet" href="ide.css">
+</head>
+<body>
+    <!-- Modern Header will be inserted here by JavaScript -->
+
+    <!-- IDE Hero Section -->
+    <section class="ide-hero">
+        <div class="ide-hero-content">
+            <h1>Unlicode IDE</h1>
+            <p>Experience the future of development with our interactive IDE featuring AI-powered SWE Agent</p>
+            <button class="try-ide-button">
+                <i class="ph-play"></i>
+                Try Interactive Demo
+            </button>
+        </div>
+    </section>
+
+    <!-- Interactive IDE Section -->
+    <section class="ide-section">
+        <div class="ide-container">
+            <!-- IDE Interface Background -->
+            <div class="ide-background">
+                <!-- Top Bar -->
+                <div class="ide-top-bar">
+                    <div class="ide-controls">
+                        <div class="control-dot red"></div>
+                        <div class="control-dot yellow"></div>
+                        <div class="control-dot green"></div>
+                    </div>
+                    <div class="ide-navigation">
+                        <i class="ph-arrow-left"></i>
+                        <i class="ph-arrow-right"></i>
+                    </div>
+                    <div class="ide-search">
+                        <i class="ph-magnifying-glass"></i>
+                        <span>unlicode</span>
+                    </div>
+                    <div class="ide-actions">
+                        <i class="ph-squares-four"></i>
+                        <i class="ph-square-half"></i>
+                        <i class="ph-square"></i>
+                        <i class="ph-gear"></i>
+                    </div>
+                </div>
+                
+                <!-- Left Sidebar -->
+                <div class="ide-sidebar">
+                    <div class="sidebar-item" data-tooltip="File Explorer - Browse your project files">
+                        <i class="ph-file-text"></i>
+                    </div>
+                    <div class="sidebar-item" data-tooltip="Search - Find files and code quickly">
+                        <i class="ph-magnifying-glass"></i>
+                    </div>
+                    <div class="sidebar-item" data-tooltip="Git - Version control integration">
+                        <i class="ph-git-branch"></i>
+                    </div>
+                    <div class="sidebar-item" data-tooltip="Problems - View errors and warnings">
+                        <i class="ph-warning"></i>
+                    </div>
+                    <div class="sidebar-item" data-tooltip="Settings - Configure your IDE">
+                        <i class="ph-gear"></i>
+                    </div>
+                    <div class="sidebar-item" data-tooltip="Account - Manage your profile">
+                        <i class="ph-user"></i>
+                    </div>
+                </div>
+                
+                <!-- Main Content Area -->
+                <div class="ide-main">
+                    <div class="ide-content">
+                        <div class="ide-cube">
+                            <div class="cube-face front">
+                                <img src="images/unlicode-logo.png" alt="Unlicode Logo" class="cube-logo">
+                            </div>
+                        </div>
+                        <div class="ide-shortcuts">
+                            <div class="shortcut">Chat ⌘ L</div>
+                            <div class="shortcut">Quick Edit ⌘ K</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Panel -->
+                <div class="ide-right-panel">
+                    <div class="panel-header">
+                        <span>CHAT</span>
+                        <div class="panel-actions">
+                            <i class="ph-plus"></i>
+                            <i class="ph-arrow-clockwise"></i>
+                            <i class="ph-gear"></i>
+                            <i class="ph-x"></i>
+                        </div>
+                    </div>
+                    <div class="chat-content">
+                        <div class="agent-icon">
+                            <i class="ph-monitor"></i>
+                        </div>
+                        <h3>SWE Agent</h3>
+                        <p class="coming-soon">Coming Soon</p>
+                        <p class="agent-description">We're working on something amazing. Stay tuned for the next generation of AI assistance.</p>
+                        <button class="waitlist-btn">Join Waitlist</button>
+                        <p class="waitlist-text">Be the first to know when we launch</p>
+                    </div>
+                </div>
+                
+                <!-- Bottom Status Bar -->
+                <div class="ide-status-bar">
+                    <div class="status-item">
+                        <div class="status-icon blue"></div>
+                    </div>
+                    <div class="status-item">
+                        <i class="ph-x-circle"></i>
+                        <span>0</span>
+                    </div>
+                    <div class="status-item">
+                        <i class="ph-warning"></i>
+                        <span>0</span>
+                    </div>
+                    <div class="status-item">
+                        <i class="ph-circle"></i>
+                        <span>0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Tooltips -->
+            <div class="ide-tooltip" id="ide-tooltip">
+                <div class="tooltip-content">
+                    <h4 id="tooltip-title">Feature</h4>
+                    <p id="tooltip-description">Description of the feature</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IDE Features Section -->
+    <section class="ide-features">
+        <div class="container">
+            <h2>IDE Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph-code"></i>
+                    </div>
+                    <h3>Smart Code Completion</h3>
+                    <p>AI-powered code suggestions that understand your project context and coding style.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph-bug"></i>
+                    </div>
+                    <h3>Intelligent Debugging</h3>
+                    <p>Advanced debugging tools with AI assistance to help you find and fix issues faster.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph-git-branch"></i>
+                    </div>
+                    <h3>Git Integration</h3>
+                    <p>Seamless version control with AI-powered commit message suggestions and conflict resolution.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph-terminal"></i>
+                    </div>
+                    <h3>Integrated Terminal</h3>
+                    <p>Powerful terminal with AI command suggestions and intelligent autocomplete.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Home Link -->
+    <section class="back-home">
+        <div class="container">
+            <a href="index.html" class="back-home-btn">
+                <i class="ph-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </section>
+
+    <script src="components/ui/header.js"></script>
+    <script src="ide.js"></script>
+</body>
+</html>

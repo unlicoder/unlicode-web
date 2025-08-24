@@ -35,6 +35,7 @@ class ModernHeader {
             <!-- Desktop Navigation -->
             <div class="nav-menu desktop-nav">
               <a href="#home" class="nav-link">Home</a>
+              <a href="ide.html" class="nav-link">IDE</a>
               <a href="#features" class="nav-link">Features</a>
               <a href="/documentation" class="nav-link">Documentation</a>
               <a href="/blog" class="nav-link">Blog</a>
@@ -88,6 +89,7 @@ class ModernHeader {
         <div class="mobile-nav" id="mobile-nav">
           <div class="mobile-nav-content">
             <a href="#home" class="mobile-nav-link">Home</a>
+            <a href="ide.html" class="mobile-nav-link">IDE</a>
             <a href="#features" class="mobile-nav-link">Features</a>
             <a href="/documentation" class="mobile-nav-link">Documentation</a>
             <a href="/blog" class="mobile-nav-link">Blog</a>
