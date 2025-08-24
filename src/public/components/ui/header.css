@@ -9,10 +9,10 @@
   
   --nav-link-color: #374151;
   --nav-link-hover: #111827;
-  --nav-link-active: #8b5cf6;
+  --nav-link-active: #1a1a1a;
   
-  --btn-primary-bg: #8b5cf6;
-  --btn-primary-hover: #7c3aed;
+  --btn-primary-bg: #1a1a1a;
+  --btn-primary-hover: #000000;
   --btn-primary-text: #ffffff;
   
   --announcement-bg: #fef3c7;
@@ -32,10 +32,11 @@
   
   --nav-link-color: #d1d5db;
   --nav-link-hover: #ffffff;
-  --nav-link-active: #a855f7;
+  --nav-link-active: #ffffff;
   
-  --btn-primary-bg: #a855f7;
-  --btn-primary-hover: #9333ea;
+  --btn-primary-bg: #ffffff;
+  --btn-primary-hover: #e5e5e5;
+  --btn-primary-text: #000000;
   
   --announcement-bg: #451a03;
   --announcement-text: #fbbf24;
@@ -290,7 +291,7 @@
 .download-btn:hover {
   background: var(--btn-primary-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(26, 26, 26, 0.3);
 }
 
 .download-btn:active {
