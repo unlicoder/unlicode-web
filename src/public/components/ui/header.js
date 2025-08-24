@@ -26,7 +26,7 @@ class ModernHeader {
             <div class="nav-logo">
               <a href="/" class="logo-link">
                 <div class="logo-icon">
-                  <img src="images/unlicode-logo.png" alt="Unlicode Logo" width="32" height="32">
+                  <img src="images/unlicode-logo.png" alt="Unlicode Logo" width="44" height="44">
                 </div>
                 <span class="logo-text">Unlicode</span>
               </a>

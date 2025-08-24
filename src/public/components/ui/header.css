@@ -153,9 +153,15 @@
 }
 
 .logo-icon {
-  width: 2rem;
-  height: 2rem;
-  color: var(--btn-primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-icon img {
+  display: block;
+  object-fit: contain;
 }
 
 .logo-text {
