@@ -66,17 +66,21 @@ A high-end, luxury website for Unlicode - an Open Source IDE with Unlimited Toke
 
 ```
 unlicode-web/
-├── public/                 # Static files
-│   ├── index.html         # Homepage
-│   ├── documentation.html # Documentation page
-│   ├── blog.html         # Blog page
-│   ├── contact.html      # Contact page
-│   ├── 404.html          # 404 error page
-│   ├── styles.css        # Main stylesheet
-│   ├── documentation.css # Documentation styles
-│   ├── blog.css          # Blog styles
-│   ├── contact.css       # Contact styles
-│   └── script.js         # Main JavaScript
+├── src/
+│   └── public/            # Static files
+│       ├── index.html     # Homepage
+│       ├── documentation.html # Documentation page
+│       ├── blog.html      # Blog page
+│       ├── contact.html   # Contact page
+│       ├── 404.html       # 404 error page
+│       ├── styles.css     # Consolidated stylesheet (all styles)
+│       ├── script.js      # Main JavaScript
+│       ├── components/    # UI components
+│       │   └── ui/
+│       │       ├── header.css # Header component styles
+│       │       └── header.js  # Header component logic
+│       └── images/        # Images and assets
+│           └── unlicode-logo.png
 ├── server.js              # Express server
 ├── package.json           # Dependencies and scripts
 ├── .gitignore            # Git ignore rules
@@ -131,7 +135,7 @@ unlicode-web/
 ## 🔧 Customization
 
 ### Colors
-Update the CSS variables in `public/styles.css`:
+Update the CSS variables in `src/public/styles.css`:
 ```css
 :root {
     --primary-color: #6366f1;
@@ -155,7 +159,7 @@ Update the CSS variables in `public/styles.css`:
 
 ### Static Hosting
 1. Build the project: `npm run build`
-2. Upload the `public/` folder to your hosting provider
+2. Upload the `src/public/` folder to your hosting provider
 3. Configure your server to serve static files
 
 ### Node.js Hosting
@@ -181,6 +185,7 @@ CMD ["npm", "start"]
 - **Lazy Loading**: Images and content load as needed
 - **Caching**: Browser caching headers
 - **Compression**: Gzip compression for text assets
+- **Consolidated CSS**: Single stylesheet reduces HTTP requests
 
 ## 🔒 Security
 

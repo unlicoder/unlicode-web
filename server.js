@@ -2,25 +2,37 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
+const compression = require('compression');
+const config = require('./config');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = config.port;
+
+// Compression middleware for better performance
+app.use(compression({ threshold: config.compressionThreshold }));
 
 // Security middleware
 app.use(helmet({
   contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      scriptSrc: ["'self'"],
-      imgSrc: ["'self'", "data:", "https:"],
-    },
+    directives: config.cspDirectives,
   },
 }));
 
 // CORS middleware
-app.use(cors());
+app.use(cors({
+  origin: config.corsOrigin,
+  credentials: true
+}));
+
+// Cache control middleware for static assets
+app.use((req, res, next) => {
+  if (req.url.match(/\.(css|js|png|jpg|jpeg|gif|ico|svg)$/)) {
+    res.setHeader('Cache-Control', `public, max-age=${config.staticCacheMaxAge}`);
+  } else if (req.url.match(/\.(html)$/)) {
+    res.setHeader('Cache-Control', `public, max-age=${config.htmlCacheMaxAge}`);
+  }
+  next();
+});
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'src', 'public')));
