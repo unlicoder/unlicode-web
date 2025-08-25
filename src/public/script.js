@@ -232,71 +232,7 @@ if (downloadButton) {
   });
 }
 
-// Testimonials carousel
-function initTestimonials() {
-    const testimonials = document.querySelectorAll('.testimonial');
-    const dots = document.querySelectorAll('.dot');
-    
-    // Safety check: if no testimonials exist, exit early
-    if (testimonials.length === 0 || dots.length === 0) {
-        console.log('Testimonials section not found, skipping initialization');
-        return;
-    }
-    
-    let currentSlide = 0;
-    let interval;
 
-    function showSlide(index) {
-        // Hide all testimonials
-        testimonials.forEach(testimonial => {
-            testimonial.classList.remove('active');
-        });
-        
-        // Remove active class from all dots
-        dots.forEach(dot => {
-            dot.classList.remove('active');
-        });
-        
-        // Show current testimonial
-        testimonials[index].classList.add('active');
-        dots[index].classList.add('active');
-        
-        currentSlide = index;
-    }
-
-    function nextSlide() {
-        const next = (currentSlide + 1) % testimonials.length;
-        showSlide(next);
-    }
-
-    // Auto-advance slides
-    function startAutoAdvance() {
-        interval = setInterval(nextSlide, 5000);
-    }
-
-    function stopAutoAdvance() {
-        clearInterval(interval);
-    }
-
-    // Dot navigation
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', function() {
-            showSlide(index);
-            stopAutoAdvance();
-            startAutoAdvance(); // Restart auto-advance
-        });
-    });
-
-    // Pause auto-advance on hover
-    const carousel = document.getElementById('testimonials-carousel');
-    if (carousel) {
-        carousel.addEventListener('mouseenter', stopAutoAdvance);
-        carousel.addEventListener('mouseleave', startAutoAdvance);
-    }
-
-    // Start auto-advance
-    startAutoAdvance();
-}
 
 // FAQ accordion functionality
 function initFAQ() {
@@ -356,9 +292,6 @@ document.querySelectorAll('section').forEach(section => {
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize testimonials
-    initTestimonials();
-    
     // Initialize FAQ
     initFAQ();
     
@@ -402,78 +335,9 @@ document.addEventListener('keydown', function(e) {
         navLinks.classList.remove('active');
     }
     
-    // Arrow keys for testimonials
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-        const testimonials = document.querySelectorAll('.testimonial');
-        const dots = document.querySelectorAll('.dot');
-        let currentSlide = 0;
-        
-        // Find current active slide
-        testimonials.forEach((testimonial, index) => {
-            if (testimonial.classList.contains('active')) {
-                currentSlide = index;
-            }
-        });
-        
-        if (e.key === 'ArrowLeft') {
-            currentSlide = (currentSlide - 1 + testimonials.length) % testimonials.length;
-        } else if (e.key === 'ArrowRight') {
-            currentSlide = (currentSlide + 1) % testimonials.length;
-        }
-        
-        // Show the new slide
-        testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        testimonials[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-    }
+
 });
 
-// Add touch support for mobile
-let touchStartX = 0;
-let touchEndX = 0;
 
-document.addEventListener('touchstart', function(e) {
-    touchStartX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener('touchend', function(e) {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    const swipeThreshold = 50;
-    const diff = touchStartX - touchEndX;
-    
-    if (Math.abs(diff) > swipeThreshold) {
-        const testimonials = document.querySelectorAll('.testimonial');
-        const dots = document.querySelectorAll('.dot');
-        let currentSlide = 0;
-        
-        // Find current active slide
-        testimonials.forEach((testimonial, index) => {
-            if (testimonial.classList.contains('active')) {
-                currentSlide = index;
-            }
-        });
-        
-        if (diff > 0) {
-            // Swipe left - next slide
-            currentSlide = (currentSlide + 1) % testimonials.length;
-        } else {
-            // Swipe right - previous slide
-            currentSlide = (currentSlide - 1 + testimonials.length) % testimonials.length;
-        }
-        
-        // Show the new slide
-        testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        testimonials[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-    }
-}
 
 
