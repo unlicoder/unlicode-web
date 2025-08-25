@@ -39,22 +39,55 @@ app.use(express.static(path.join(__dirname, 'src', 'public')));
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'public', 'index.html'));
+  try {
+    res.sendFile(path.join(__dirname, 'src', 'public', 'index.html'));
+  } catch (error) {
+    console.error('Error serving index.html:', error);
+    res.status(500).send('Internal server error');
+  }
 });
 
-
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    environment: config.nodeEnv,
+    version: '1.0.0'
+  });
+});
 
 // 404 handler
 app.use((req, res) => {
+  console.log(`404 - Page not found: ${req.method} ${req.url}`);
   res.status(404).send('Page not found');
 });
 
 // Error handler
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
+  console.error('Server error:', err.stack);
+  
+  // Don't expose internal errors in production
+  const message = config.nodeEnv === 'production' 
+    ? 'Something went wrong!' 
+    : err.message;
+    
+  res.status(err.status || 500).send(message);
+});
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+  console.log('SIGTERM received, shutting down gracefully');
+  process.exit(0);
+});
+
+process.on('SIGINT', () => {
+  console.log('SIGINT received, shutting down gracefully');
+  process.exit(0);
 });
 
 app.listen(PORT, () => {
   console.log(`🚀 Unlicode website running on http://localhost:${PORT}`);
+  console.log(`Environment: ${config.nodeEnv}`);
+  console.log(`CORS Origin: ${JSON.stringify(config.corsOrigin)}`);
 });

@@ -1,139 +1,199 @@
+// Safe DOM Query Function with Error Handling
+function safeQuerySelector(selector) {
+  try {
+    const element = document.querySelector(selector);
+    if (!element) {
+      console.warn(`Element not found: ${selector}`);
+      return null;
+    }
+    return element;
+  } catch (error) {
+    console.error(`Error querying selector ${selector}:`, error);
+    return null;
+  }
+}
+
+function safeGetElementById(id) {
+  try {
+    const element = document.getElementById(id);
+    if (!element) {
+      console.warn(`Element with ID not found: ${id}`);
+      return null;
+    }
+    return element;
+  } catch (error) {
+    console.error(`Error getting element by ID ${id}:`, error);
+    return null;
+  }
+}
+
+// Safe Event Listener Function
+function safeAddEventListener(element, event, handler) {
+  if (element && typeof element.addEventListener === 'function') {
+    try {
+      element.addEventListener(event, handler);
+    } catch (error) {
+      console.error(`Error adding ${event} listener:`, error);
+    }
+  } else {
+    console.warn(`Cannot add ${event} listener to element:`, element);
+  }
+}
+
 // Theme Switching System
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
+const themeToggle = safeGetElementById('theme-toggle');
+const themeIcon = safeGetElementById('theme-icon');
 const html = document.documentElement;
 
 // Check for saved theme preference or default to light
 const currentTheme = localStorage.getItem('theme') || 'light';
 html.setAttribute('data-theme', currentTheme);
-updateThemeIcon(currentTheme);
+if (themeIcon) {
+  updateThemeIcon(currentTheme);
+}
 
 // Theme toggle functionality
-themeToggle.addEventListener('click', () => {
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
+    if (themeIcon) {
+      updateThemeIcon(newTheme);
+    }
     
     // Add click effect
     themeToggle.style.transform = 'scale(0.95)';
     setTimeout(() => {
-        themeToggle.style.transform = 'scale(1)';
+      themeToggle.style.transform = 'scale(1)';
     }, 150);
-});
+  });
+}
 
 function updateThemeIcon(theme) {
-    if (theme === 'light') {
-        themeIcon.className = 'ph-moon';
-        themeIcon.style.color = '#f59e0b'; // Yellow for sun
-    } else {
-        themeIcon.className = 'ph-sun';
-        themeIcon.style.color = '#fbbf24'; // Light yellow for moon
-    }
-    
-    // Update navbar background based on new theme
-    updateNavbarBackground(theme);
+  if (!themeIcon) return;
+  
+  if (theme === 'light') {
+    themeIcon.className = 'ph-moon';
+    themeIcon.style.color = '#f59e0b'; // Yellow for sun
+  } else {
+    themeIcon.className = 'ph-sun';
+    themeIcon.style.color = '#fbbf24'; // Light yellow for moon
+  }
+  
+  // Update navbar background based on new theme
+  updateNavbarBackground(theme);
 }
 
 function updateNavbarBackground(theme) {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > 100) {
-        if (theme === 'light') {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
-        }
+  const navbar = safeQuerySelector('.navbar');
+  if (!navbar) return;
+  
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  if (scrollTop > 100) {
+    if (theme === 'light') {
+      navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+      navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
     } else {
-        if (theme === 'light') {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = 'none';
-        } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-            navbar.style.boxShadow = 'none';
-        }
+      navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+      navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
     }
+  } else {
+    if (theme === 'light') {
+      navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+      navbar.style.boxShadow = 'none';
+    } else {
+      navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+      navbar.style.boxShadow = 'none';
+    }
+  }
 }
 
 // Mobile Navigation
-const burgerMenu = document.querySelector('.burger-menu');
-const navLinks = document.querySelector('.nav-links');
+const burgerMenu = safeQuerySelector('.burger-menu');
+const navLinks = safeQuerySelector('.nav-links');
 
-burgerMenu.addEventListener('click', () => {
+if (burgerMenu && navLinks) {
+  burgerMenu.addEventListener('click', () => {
     navLinks.classList.toggle('active');
-});
+  });
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
     if (!burgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('active');
+      navLinks.classList.remove('active');
     }
-});
+  });
+}
 
 // Sticky navigation
-const navbar = document.querySelector('.navbar');
+const navbar = safeQuerySelector('.navbar');
 let lastScrollTop = 0;
 
-window.addEventListener('scroll', () => {
+if (navbar) {
+  window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const currentTheme = html.getAttribute('data-theme');
     
     if (scrollTop > 100) {
-        if (currentTheme === 'light') {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
-        }
+      if (currentTheme === 'light') {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+      }
     } else {
-        if (currentTheme === 'light') {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = 'none';
-        } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-            navbar.style.boxShadow = 'none';
-        }
+      if (currentTheme === 'light') {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = 'none';
+      } else {
+        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+        navbar.style.boxShadow = 'none';
+      }
     }
     
     lastScrollTop = scrollTop;
-});
+  });
+}
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
 });
 
 // Search functionality
-const searchInput = document.querySelector('.search-input');
-const searchIcon = document.querySelector('.search-icon');
+const searchInput = safeQuerySelector('.search-input');
+const searchIcon = safeQuerySelector('.search-icon');
 
-searchInput.addEventListener('focus', () => {
+if (searchInput && searchIcon) {
+  searchInput.addEventListener('focus', () => {
     searchIcon.style.color = 'var(--accent-blue)';
-});
+  });
 
-searchInput.addEventListener('blur', () => {
+  searchInput.addEventListener('blur', () => {
     const currentTheme = html.getAttribute('data-theme');
     searchIcon.style.color = currentTheme === 'light' ? '#999999' : '#737373';
-});
+  });
+}
 
 // Download button interaction
-const downloadButton = document.querySelector('.download-button');
+const downloadButton = safeQuerySelector('.download-button');
 
-downloadButton.addEventListener('click', (e) => {
+if (downloadButton) {
+  downloadButton.addEventListener('click', (e) => {
     // Create ripple effect
     const ripple = document.createElement('span');
     const rect = downloadButton.getBoundingClientRect();
@@ -150,7 +210,7 @@ downloadButton.addEventListener('click', (e) => {
     
     // Remove ripple after animation
     setTimeout(() => {
-        ripple.remove();
+      ripple.remove();
     }, 600);
     
     // Add loading state
@@ -160,27 +220,28 @@ downloadButton.addEventListener('click', (e) => {
     // Add click effect
     downloadButton.style.transform = 'scale(0.95)';
     setTimeout(() => {
-        downloadButton.style.transform = 'scale(1)';
+      downloadButton.style.transform = 'scale(1)';
     }, 150);
     
     // Simulate download process (replace with actual download logic)
     setTimeout(() => {
-        // Remove loading state
-        downloadButton.classList.remove('loading');
-        downloadButton.innerHTML = '<i class="ph-check-circle"></i> Download Complete!';
-        downloadButton.style.background = '#10b981';
-        downloadButton.style.borderColor = '#10b981';
-        
-        // Reset button after a delay
-        setTimeout(() => {
-            downloadButton.innerHTML = '<i class="ph-rocket"></i> Unlock Early Access';
-            downloadButton.style.background = '';
-            downloadButton.style.borderColor = '';
-        }, 2000);
+      // Remove loading state
+      downloadButton.classList.remove('loading');
+      downloadButton.innerHTML = '<i class="ph-check-circle"></i> Download Complete!';
+      downloadButton.style.background = '#10b981';
+      downloadButton.style.borderColor = '#10b981';
+      
+      // Reset button after a delay
+      setTimeout(() => {
+        downloadButton.innerHTML = '<i class="ph-rocket"></i> Unlock Early Access';
+        downloadButton.style.background = '';
+        downloadButton.style.borderColor = '';
+      }, 2000);
     }, 2000);
     
     console.log('Download initiated...');
-});
+  });
+}
 
 // Testimonials carousel
 function initTestimonials() {

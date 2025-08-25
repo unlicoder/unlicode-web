@@ -7,9 +7,11 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "build": "echo 'No build step required for static site'",
-    "lint": "echo 'No linting configured'",
-    "test": "echo 'No tests configured'",
-    "clean": "rm -rf node_modules package-lock.json && npm install"
+    "lint": "echo 'Linting not configured - consider adding ESLint'",
+    "test": "echo 'Testing not configured - consider adding Jest'",
+    "test:manual": "echo 'Manual testing checklist: 1) Check browser console for errors 2) Test theme toggle 3) Test search functionality 4) Test navigation 5) Test testimonials carousel 6) Test FAQ accordion'",
+    "clean": "rm -rf node_modules package-lock.json && npm install",
+    "health": "curl -f http://localhost:3000/health || echo 'Server not responding'"
   },
   "keywords": [
     "unlicode",

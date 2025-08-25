@@ -5,7 +5,9 @@ module.exports = {
   nodeEnv: process.env.NODE_ENV || 'development',
   
   // Security settings
-  corsOrigin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  corsOrigin: process.env.NODE_ENV === 'production' 
+    ? process.env.CORS_ORIGIN 
+    : ['http://localhost:3000', 'http://127.0.0.1:3000'],
   
   // Cache settings
   staticCacheMaxAge: 31536000, // 1 year for static assets
@@ -17,9 +19,12 @@ module.exports = {
   // Content Security Policy
   cspDirectives: {
     defaultSrc: ["'self'"],
-    styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+    styleSrc: ["'self'", "https://fonts.googleapis.com"],
     fontSrc: ["'self'", "https://fonts.gstatic.com"],
     scriptSrc: ["'self'"],
-    imgSrc: ["'self'", "data:", "https:"],
+    imgSrc: ["'self'", "https://fonts.gstatic.com"],
+    connectSrc: ["'self'"],
+    frameSrc: ["'none'"],
+    objectSrc: ["'none'"]
   }
 };
