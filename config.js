@@ -43,7 +43,7 @@ module.exports = {
   cspDirectives: {
     defaultSrc: ["'self'"],
     styleSrc: ["'self'", "https://fonts.googleapis.com"],
-    fontSrc: ["'self'", "https://fonts.gstatic.com"],
+    fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
     scriptSrc: ["'self'"],
     imgSrc: ["'self'", "https://fonts.gstatic.com"],
     connectSrc: ["'self'"],
