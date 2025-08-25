@@ -170,6 +170,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         behavior: 'smooth',
         block: 'start'
       });
+    } else {
+      console.log(`Target element ${this.getAttribute('href')} not found`);
     }
   });
 });
@@ -234,6 +236,13 @@ if (downloadButton) {
 function initTestimonials() {
     const testimonials = document.querySelectorAll('.testimonial');
     const dots = document.querySelectorAll('.dot');
+    
+    // Safety check: if no testimonials exist, exit early
+    if (testimonials.length === 0 || dots.length === 0) {
+        console.log('Testimonials section not found, skipping initialization');
+        return;
+    }
+    
     let currentSlide = 0;
     let interval;
 
@@ -280,8 +289,10 @@ function initTestimonials() {
 
     // Pause auto-advance on hover
     const carousel = document.getElementById('testimonials-carousel');
-    carousel.addEventListener('mouseenter', stopAutoAdvance);
-    carousel.addEventListener('mouseleave', startAutoAdvance);
+    if (carousel) {
+        carousel.addEventListener('mouseenter', stopAutoAdvance);
+        carousel.addEventListener('mouseleave', startAutoAdvance);
+    }
 
     // Start auto-advance
     startAutoAdvance();
@@ -291,22 +302,30 @@ function initTestimonials() {
 function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
     
+    // Safety check: if no FAQ items exist, exit early
+    if (faqItems.length === 0) {
+        console.log('FAQ section not found, skipping initialization');
+        return;
+    }
+    
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         
-        question.addEventListener('click', function() {
-            const isActive = item.classList.contains('active');
-            
-            // Close all other FAQ items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                }
+        if (question) {
+            question.addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other FAQ items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
             });
-            
-            // Toggle current item
-            item.classList.toggle('active');
-        });
+        }
     });
 }
 
@@ -327,10 +346,12 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all sections for animation
 document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
+    if (section) {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    }
 });
 
 // Initialize page
@@ -343,14 +364,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add fade-in animation to hero section
     const hero = document.querySelector('.hero');
-    hero.style.opacity = '0';
-    hero.style.transform = 'translateY(30px)';
-    
-    setTimeout(() => {
-        hero.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        hero.style.opacity = '1';
-        hero.style.transform = 'translateY(0)';
-    }, 100);
+    if (hero) {
+        hero.style.opacity = '0';
+        hero.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+            hero.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            hero.style.opacity = '1';
+            hero.style.transform = 'translateY(0)';
+        }, 100);
+    }
 });
 
 // Performance optimization: Throttle scroll events
