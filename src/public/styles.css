@@ -70,6 +70,12 @@
   --border-color: #334155;
 }
 
+/* Dark theme feature icon overrides */
+[data-theme="dark"] .feature-icon {
+  background: #ffffff;
+  color: #000000;
+}
+
 /* Remove dark theme button styles */
 
 /* Remove remaining dark theme references */
