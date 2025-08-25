@@ -40,74 +40,33 @@ function safeAddEventListener(element, event, handler) {
   }
 }
 
-// Theme Switching System
-const themeToggle = safeGetElementById('theme-toggle');
-const themeIcon = safeGetElementById('theme-icon');
-const html = document.documentElement;
+// Simple Theme System - Single source of truth (Global functions)
+window.initTheme = function() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateThemeIcon(savedTheme);
+};
 
-// Check for saved theme preference or default to light
-const currentTheme = localStorage.getItem('theme') || 'light';
-html.setAttribute('data-theme', currentTheme);
-if (themeIcon) {
-  updateThemeIcon(currentTheme);
-}
-
-// Theme toggle functionality
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    if (themeIcon) {
-      updateThemeIcon(newTheme);
-    }
-    
-    // Add click effect
-    themeToggle.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-      themeToggle.style.transform = 'scale(1)';
-    }, 150);
-  });
-}
+window.toggleTheme = function() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateThemeIcon(newTheme);
+};
 
 function updateThemeIcon(theme) {
-  if (!themeIcon) return;
+  const sunIcon = document.querySelector('.sun-icon');
+  const moonIcon = document.querySelector('.moon-icon');
   
-  if (theme === 'light') {
-    themeIcon.className = 'ph-moon';
-    themeIcon.style.color = '#f59e0b'; // Yellow for sun
-  } else {
-    themeIcon.className = 'ph-sun';
-    themeIcon.style.color = '#fbbf24'; // Light yellow for moon
-  }
-  
-  // Update navbar background based on new theme
-  updateNavbarBackground(theme);
-}
-
-function updateNavbarBackground(theme) {
-  const navbar = safeQuerySelector('.navbar');
-  if (!navbar) return;
-  
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-  if (scrollTop > 100) {
-    if (theme === 'light') {
-      navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-      navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+  if (sunIcon && moonIcon) {
+    if (theme === 'dark') {
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
     } else {
-      navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-      navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
-    }
-  } else {
-    if (theme === 'light') {
-      navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-      navbar.style.boxShadow = 'none';
-    } else {
-      navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-      navbar.style.boxShadow = 'none';
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
     }
   }
 }
@@ -136,7 +95,7 @@ let lastScrollTop = 0;
 if (navbar) {
   window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const currentTheme = html.getAttribute('data-theme');
+    const currentTheme = document.documentElement.getAttribute('data-theme');
     
     if (scrollTop > 100) {
       if (currentTheme === 'light') {
@@ -175,8 +134,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
-
-
 
 // Download button interaction
 const downloadButton = safeQuerySelector('.download-button');
@@ -231,8 +188,6 @@ if (downloadButton) {
     console.log('Download initiated...');
   });
 }
-
-
 
 // FAQ accordion functionality
 function initFAQ() {
@@ -292,6 +247,11 @@ document.querySelectorAll('section').forEach(section => {
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize theme system
+    if (typeof window.initTheme === 'function') {
+        window.initTheme();
+    }
+    
     // Initialize FAQ
     initFAQ();
     
@@ -332,10 +292,10 @@ window.addEventListener('scroll', throttle(() => {
 document.addEventListener('keydown', function(e) {
     // Escape key closes mobile menu
     if (e.key === 'Escape') {
-        navLinks.classList.remove('active');
+        if (navLinks) {
+            navLinks.classList.remove('active');
+        }
     }
-    
-
 });
 
 

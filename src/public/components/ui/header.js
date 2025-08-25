@@ -10,7 +10,6 @@ class ModernHeader {
     this.createHeader();
     this.bindEvents();
     this.handleScroll();
-    this.initializeTheme();
     this.adjustBodyPadding();
   }
 
@@ -92,10 +91,15 @@ class ModernHeader {
   }
 
   bindEvents() {
-    // Theme toggle
+    // Theme toggle - use centralized theme system
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
-      themeToggle.addEventListener('click', this.toggleTheme.bind(this));
+      themeToggle.addEventListener('click', () => {
+        // Call the centralized theme toggle function
+        if (typeof toggleTheme === 'function') {
+          toggleTheme();
+        }
+      });
     }
 
     // Mobile menu toggle
@@ -103,8 +107,6 @@ class ModernHeader {
     if (mobileMenuToggle) {
       mobileMenuToggle.addEventListener('click', this.toggleMobileMenu.bind(this));
     }
-
-
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
@@ -132,29 +134,6 @@ class ModernHeader {
     } else if (scrollTop <= 10 && this.isScrolled) {
       header.classList.remove('scrolled');
       this.isScrolled = false;
-    }
-  }
-
-  toggleTheme() {
-    const body = document.body;
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Update theme icon
-    const sunIcon = document.querySelector('.sun-icon');
-    const moonIcon = document.querySelector('.moon-icon');
-    
-    if (sunIcon && moonIcon) {
-      if (newTheme === 'dark') {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-      } else {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-      }
     }
   }
 
@@ -187,31 +166,9 @@ class ModernHeader {
     
     if (mobileNav && mobileMenuToggle) {
       mobileNav.classList.remove('open');
-      mobileMenuToggle.classList.remove('active');
+      mobileMenuToggle.classList.remove('open');
       this.isMobileMenuOpen = false;
       document.body.style.overflow = '';
-    }
-  }
-
-
-
-  initializeTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    const body = document.body;
-    body.setAttribute('data-theme', savedTheme);
-    
-    // Update theme icon
-    const sunIcon = document.querySelector('.sun-icon');
-    const moonIcon = document.querySelector('.moon-icon');
-    
-    if (sunIcon && moonIcon) {
-      if (savedTheme === 'dark') {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-      } else {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-      }
     }
   }
 
