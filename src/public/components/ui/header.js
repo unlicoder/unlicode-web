@@ -38,16 +38,6 @@ class ModernHeader {
 
             <!-- Action Buttons -->
             <div class="nav-actions">
-              <!-- Search -->
-              <div class="search-container">
-                <button class="search-trigger" aria-label="Search">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="m21 21-4.35-4.35"/>
-                  </svg>
-                </button>
-              </div>
-
               <!-- Theme Toggle -->
               <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                 <svg class="theme-icon sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

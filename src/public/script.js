@@ -174,20 +174,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Search functionality
-const searchInput = safeQuerySelector('.search-input');
-const searchIcon = safeQuerySelector('.search-icon');
 
-if (searchInput && searchIcon) {
-  searchInput.addEventListener('focus', () => {
-    searchIcon.style.color = 'var(--accent-blue)';
-  });
-
-  searchInput.addEventListener('blur', () => {
-    const currentTheme = html.getAttribute('data-theme');
-    searchIcon.style.color = currentTheme === 'light' ? '#999999' : '#737373';
-  });
-}
 
 // Download button interaction
 const downloadButton = safeQuerySelector('.download-button');
