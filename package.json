@@ -11,7 +11,9 @@
     "test": "echo 'Testing not configured - consider adding Jest'",
     "test:manual": "echo 'Manual testing checklist: 1) Check browser console for errors 2) Test theme toggle 3) Test search functionality 4) Test navigation 5) Test testimonials carousel 6) Test FAQ accordion'",
     "clean": "rm -rf node_modules package-lock.json && npm install",
-    "health": "curl -f http://localhost:3000/health || echo 'Server not responding'"
+    "health": "curl -f http://localhost:3000/health || echo 'Server not responding'",
+    "validate": "node validate-config.js",
+    "prestart": "npm run validate"
   },
   "keywords": [
     "unlicode",

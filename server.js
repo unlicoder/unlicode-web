@@ -8,6 +8,16 @@ const config = require('./config');
 const app = express();
 const PORT = config.port;
 
+// Validate critical configuration before starting
+if (!config.corsOrigin) {
+  console.error('❌ Critical Error: CORS_ORIGIN is not configured');
+  console.error('Please set the CORS_ORIGIN environment variable');
+  process.exit(1);
+}
+
+console.log('✅ Configuration validation passed');
+console.log(`🌍 CORS Origin: ${JSON.stringify(config.corsOrigin)}`);
+
 // Compression middleware for better performance
 app.use(compression({ threshold: config.compressionThreshold }));
 
@@ -18,10 +28,11 @@ app.use(helmet({
   },
 }));
 
-// CORS middleware
+// CORS middleware with validation
 app.use(cors({
   origin: config.corsOrigin,
-  credentials: true
+  credentials: true,
+  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
 }));
 
 // Cache control middleware for static assets

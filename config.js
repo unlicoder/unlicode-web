@@ -1,4 +1,27 @@
 // Configuration file for the Unlicode website
+
+// Environment variable validation
+function validateEnvironment() {
+  const requiredVars = [];
+  
+  // Production environment requires CORS_ORIGIN
+  if (process.env.NODE_ENV === 'production') {
+    requiredVars.push('CORS_ORIGIN');
+  }
+  
+  const missingVars = requiredVars.filter(varName => !process.env[varName]);
+  
+  if (missingVars.length > 0) {
+    throw new Error(
+      `Missing required environment variables: ${missingVars.join(', ')}\n` +
+      'Please check your .env file and ensure all required variables are set.'
+    );
+  }
+}
+
+// Validate environment before exporting config
+validateEnvironment();
+
 module.exports = {
   // Server configuration
   port: process.env.PORT || 3000,
