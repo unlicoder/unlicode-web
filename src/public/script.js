@@ -71,52 +71,58 @@ function updateThemeIcon(theme) {
   }
 }
 
-// Mobile Navigation
-const burgerMenu = safeQuerySelector('.burger-menu');
-const navLinks = safeQuerySelector('.nav-links');
+// Mobile Navigation - Updated to use correct selectors
+function initMobileNavigation() {
+  const mobileMenuToggle = safeQuerySelector('.mobile-menu-toggle');
+  const mobileNav = safeQuerySelector('.mobile-nav');
 
-if (burgerMenu && navLinks) {
-  burgerMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
+  if (mobileMenuToggle && mobileNav) {
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+      mobileMenuToggle.classList.toggle('active');
+    });
 
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!burgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
-      navLinks.classList.remove('active');
-    }
-  });
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+        mobileNav.classList.remove('open');
+        mobileMenuToggle.classList.remove('active');
+      }
+    });
+  }
 }
 
-// Sticky navigation
-const navbar = safeQuerySelector('.navbar');
-let lastScrollTop = 0;
+// Sticky navigation - Updated to use correct selector
+function initStickyNavigation() {
+  const navbar = safeQuerySelector('.modern-header');
+  let lastScrollTop = 0;
 
-if (navbar) {
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    
-    if (scrollTop > 100) {
-      if (currentTheme === 'light') {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      
+      if (scrollTop > 100) {
+        if (currentTheme === 'light') {
+          navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+          navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+          navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+          navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+        }
       } else {
-        navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+        if (currentTheme === 'light') {
+          navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+          navbar.style.boxShadow = 'none';
+        } else {
+          navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+          navbar.style.boxShadow = 'none';
+        }
       }
-    } else {
-      if (currentTheme === 'light') {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-      } else {
-        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-        navbar.style.boxShadow = 'none';
-      }
-    }
-    
-    lastScrollTop = scrollTop;
-  });
+      
+      lastScrollTop = scrollTop;
+    });
+  }
 }
 
 // Smooth scrolling for anchor links
@@ -255,6 +261,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize FAQ
     initFAQ();
     
+    // Initialize mobile navigation and sticky navigation
+    initMobileNavigation();
+    initStickyNavigation();
+    
     // Add fade-in animation to hero section
     const hero = document.querySelector('.hero');
     if (hero) {
@@ -292,8 +302,13 @@ window.addEventListener('scroll', throttle(() => {
 document.addEventListener('keydown', function(e) {
     // Escape key closes mobile menu
     if (e.key === 'Escape') {
-        if (navLinks) {
-            navLinks.classList.remove('active');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        if (mobileNav) {
+            mobileNav.classList.remove('open');
+        }
+        if (mobileMenuToggle) {
+            mobileMenuToggle.classList.remove('active');
         }
     }
 });
