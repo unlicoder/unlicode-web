@@ -50,10 +50,12 @@
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--header-border);
   box-shadow: var(--header-shadow);
+  transition: all 0.3s ease;
 }
 
 .modern-header.scrolled {
   box-shadow: var(--header-shadow-scrolled);
+  transition: all 0.3s ease;
 }
 
 /* Announcement Banner */
@@ -65,6 +67,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  transition: all 0.3s ease;
 }
 
 .announcement-content {
@@ -73,6 +76,7 @@
   gap: 0.75rem;
   flex: 1;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .announcement-badge {
@@ -84,18 +88,21 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  transition: all 0.3s ease;
 }
 
 .announcement-text {
   color: var(--announcement-text);
   font-size: 0.875rem;
   font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .announcement-link {
   color: var(--announcement-text);
   text-decoration: none;
   font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .announcement-link:hover {
@@ -112,15 +119,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .announcement-close:hover {
   background: rgba(0, 0, 0, 0.1);
 }
 
+/* Dark theme announcement close hover */
+[data-theme="dark"] .announcement-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 /* Navigation Container */
 .nav-container {
   padding: 0 1rem;
+  transition: all 0.3s ease;
 }
 
 .nav-content {
@@ -131,11 +145,13 @@
   justify-content: space-between;
   height: 4rem;
   gap: 2rem;
+  transition: all 0.3s ease;
 }
 
 /* Logo Section */
 .nav-logo {
   flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
 .logo-link {
@@ -165,10 +181,11 @@
 }
 
 .logo-text {
-  background: linear-gradient(135deg, var(--btn-primary-bg), #000000);
+  background: linear-gradient(135deg, var(--btn-primary-bg), var(--text-primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  transition: all 0.3s ease;
 }
 
 /* Desktop Navigation */
@@ -186,6 +203,7 @@
   padding: 0.5rem 0;
   border-radius: 6px;
   position: relative;
+  transition: all 0.3s ease;
 }
 
 .nav-link:hover {
@@ -227,12 +245,31 @@
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
+  transition: all 0.3s ease;
 }
 
 .theme-toggle:hover {
   background: rgba(0, 0, 0, 0.05);
   border-color: var(--nav-link-active);
   color: var(--nav-link-active);
+}
+
+/* Dark theme hover states */
+[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--nav-link-active);
+  color: var(--nav-link-active);
+}
+
+/* Ensure proper theme toggle styling in both themes */
+[data-theme="dark"] .theme-toggle {
+  border-color: var(--header-border);
+  color: var(--nav-link-color);
+}
+
+[data-theme="light"] .theme-toggle {
+  border-color: var(--header-border);
+  color: var(--nav-link-color);
 }
 
 .theme-icon {
@@ -242,6 +279,23 @@
 
 .moon-icon {
   display: none;
+}
+
+/* Dark theme icon display */
+[data-theme="dark"] .sun-icon {
+  display: none !important;
+}
+
+[data-theme="dark"] .moon-icon {
+  display: block !important;
+}
+
+[data-theme="light"] .sun-icon {
+  display: block !important;
+}
+
+[data-theme="light"] .moon-icon {
+  display: none !important;
 }
 
 /* Download Button */
@@ -258,11 +312,12 @@
   align-items: center;
   gap: 0.5rem;
   white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
 .download-btn:hover {
   background: var(--btn-primary-hover);
-  box-shadow: 0 4px 12px rgba(26, 26, 26, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
 /* Mobile Menu Toggle */
@@ -275,6 +330,7 @@
   flex-direction: column;
   gap: 0.25rem;
   border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
 .hamburger-line {
@@ -282,6 +338,7 @@
   height: 2px;
   background: var(--nav-link-color);
   border-radius: 1px;
+  transition: all 0.3s ease;
 }
 
 .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
@@ -296,6 +353,15 @@
   transform: rotate(-45deg) translate(0.35rem, -0.35rem);
 }
 
+/* Ensure proper mobile menu toggle styling in both themes */
+[data-theme="dark"] .mobile-menu-toggle {
+  color: var(--nav-link-color);
+}
+
+[data-theme="light"] .mobile-menu-toggle {
+  color: var(--nav-link-color);
+}
+
 /* Mobile Navigation */
 .mobile-nav {
   position: fixed;
@@ -308,10 +374,12 @@
   z-index: 999;
   transform: translateX(-100%);
   display: none;
+  transition: all 0.3s ease;
 }
 
 .mobile-nav.open {
   transform: translateX(0);
+  display: block;
 }
 
 .mobile-nav-content {
@@ -330,6 +398,7 @@
   font-size: 1.125rem;
   padding: 1rem 0;
   border-bottom: 1px solid var(--header-border);
+  transition: all 0.3s ease;
 }
 
 .mobile-nav-link:hover {
@@ -347,6 +416,22 @@
   justify-content: center;
   padding: 1rem;
   font-size: 1rem;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.mobile-download-btn:hover {
+  background: var(--btn-primary-hover);
+  box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
 /* Responsive Design */

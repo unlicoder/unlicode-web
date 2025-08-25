@@ -107,85 +107,11 @@ body {
   padding-top: 0;
 }
 
-/* Theme Toggle Container */
-.theme-toggle-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1001;
-}
-
-.theme-toggle {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-  transition: all var(--transition-speed) ease;
-  box-shadow: var(--shadow-light);
-}
-
-.theme-toggle:hover {
-  transform: scale(1.1);
-  box-shadow: var(--shadow-medium);
-}
-
-.theme-toggle i {
-  font-size: 20px;
-  color: var(--accent-yellow);
-}
+/* Theme Toggle Container - Removed conflicting styles, handled by header component */
 
 
 
-/* Navigation Bar */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--glass-border);
-  padding: 1rem 2rem;
-  z-index: 1000;
-  transition: all var(--transition-speed) ease;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.nav-links a {
-  color: var(--text-primary);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color var(--transition-speed) ease;
-}
-
-.nav-links a:hover {
-  color: var(--accent-blue);
-}
-
-.burger-menu {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 4px;
-}
-
-.burger-menu span {
-  width: 25px;
-  height: 3px;
-  background: var(--text-primary);
-  transition: all var(--transition-speed) ease;
-}
+/* Navigation Bar - Removed conflicting styles, handled by header component */
 
 /* Hero section positioning */
 .hero {
@@ -1028,9 +954,6 @@ p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
     
     .agent-cards,
     .features-grid,
@@ -1289,24 +1212,7 @@ p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .theme-toggle-container {
-    top: 15px;
-    right: 15px;
-  }
-  
 
-  
-  .navbar {
-    padding: 1rem;
-  }
-  
-  .nav-links {
-    display: none;
-  }
-  
-  .burger-menu {
-    display: flex;
-  }
   
   .faq {
     padding: 3rem 1rem;

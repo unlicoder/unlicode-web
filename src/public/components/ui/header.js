@@ -96,8 +96,10 @@ class ModernHeader {
     if (themeToggle) {
       themeToggle.addEventListener('click', () => {
         // Call the centralized theme toggle function
-        if (typeof toggleTheme === 'function') {
-          toggleTheme();
+        if (typeof window.toggleTheme === 'function') {
+          window.toggleTheme();
+        } else {
+          console.warn('toggleTheme function not found');
         }
       });
     }

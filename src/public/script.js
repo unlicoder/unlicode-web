@@ -43,6 +43,7 @@ function safeAddEventListener(element, event, handler) {
 // Simple Theme System - Single source of truth (Global functions)
 window.initTheme = function() {
   const savedTheme = localStorage.getItem('theme') || 'light';
+  console.log('Initializing theme:', savedTheme);
   document.documentElement.setAttribute('data-theme', savedTheme);
   updateThemeIcon(savedTheme);
 };
@@ -51,23 +52,37 @@ window.toggleTheme = function() {
   const currentTheme = document.documentElement.getAttribute('data-theme');
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
   
+  console.log('Toggling theme from', currentTheme, 'to', newTheme);
+  
   document.documentElement.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
   updateThemeIcon(newTheme);
 };
 
 function updateThemeIcon(theme) {
+  // Use a more robust selector to find the icons
   const sunIcon = document.querySelector('.sun-icon');
   const moonIcon = document.querySelector('.moon-icon');
+  
+  console.log('Updating theme icons for theme:', theme);
+  console.log('Sun icon found:', !!sunIcon);
+  console.log('Moon icon found:', !!moonIcon);
   
   if (sunIcon && moonIcon) {
     if (theme === 'dark') {
       sunIcon.style.display = 'none';
       moonIcon.style.display = 'block';
+      console.log('Set dark theme icons');
     } else {
       sunIcon.style.display = 'block';
       moonIcon.style.display = 'none';
+      console.log('Set light theme icons');
     }
+  } else {
+    // If icons aren't found, try again after a short delay
+    // This handles the case where the header hasn't been created yet
+    console.log('Icons not found, retrying in 100ms...');
+    setTimeout(() => updateThemeIcon(theme), 100);
   }
 }
 
@@ -92,7 +107,7 @@ function initMobileNavigation() {
   }
 }
 
-// Sticky navigation - Updated to use correct selector
+// Sticky navigation - Updated to work with CSS custom properties
 function initStickyNavigation() {
   const navbar = safeQuerySelector('.modern-header');
   let lastScrollTop = 0;
@@ -100,24 +115,11 @@ function initStickyNavigation() {
   if (navbar) {
     window.addEventListener('scroll', () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const currentTheme = document.documentElement.getAttribute('data-theme');
       
       if (scrollTop > 100) {
-        if (currentTheme === 'light') {
-          navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-          navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-          navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-          navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
-        }
+        navbar.classList.add('scrolled');
       } else {
-        if (currentTheme === 'light') {
-          navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-          navbar.style.boxShadow = 'none';
-        } else {
-          navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-          navbar.style.boxShadow = 'none';
-        }
+        navbar.classList.remove('scrolled');
       }
       
       lastScrollTop = scrollTop;
@@ -253,11 +255,6 @@ document.querySelectorAll('section').forEach(section => {
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize theme system
-    if (typeof window.initTheme === 'function') {
-        window.initTheme();
-    }
-    
     // Initialize FAQ
     initFAQ();
     
@@ -277,6 +274,13 @@ document.addEventListener('DOMContentLoaded', () => {
             hero.style.transform = 'translateY(0)';
         }, 100);
     }
+    
+    // Initialize theme system after a short delay to ensure header is created
+    setTimeout(() => {
+        if (typeof window.initTheme === 'function') {
+            window.initTheme();
+        }
+    }, 200);
 });
 
 // Performance optimization: Throttle scroll events
