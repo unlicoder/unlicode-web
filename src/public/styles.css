@@ -664,7 +664,7 @@ p {
 .feature-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+  background: #000000;
   border-radius: 50%;
   display: flex;
   align-items: center;
