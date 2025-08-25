@@ -38,6 +38,11 @@
   --text-light: #64748b;
   --border-color: #e2e8f0;
   --primary-color: #6366f1;
+  
+  /* Footer variables for light theme */
+  --footer-bg: #1a1a1a;
+  --footer-text: #ffffff;
+  --footer-border: rgba(255, 255, 255, 0.1);
 }
 
 /* Dark Theme Variables (for toggle functionality) */
@@ -68,6 +73,11 @@
   --bg-secondary: #111111;
   --text-light: #94a3b8;
   --border-color: #334155;
+  
+  /* Footer variables for dark theme */
+  --footer-bg: #000000;
+  --footer-text: #ffffff;
+  --footer-border: rgba(255, 255, 255, 0.1);
 }
 
 /* Dark theme feature icon overrides */
@@ -930,8 +940,8 @@ p {
 
 /* Footer */
 .footer {
-  background: var(--text-primary);
-  color: white;
+  background: var(--footer-bg);
+  color: var(--footer-text);
   padding: 4rem 0 2rem;
 }
 
@@ -948,7 +958,7 @@ p {
   gap: 0.75rem;
   font-size: 1.5rem;
   font-weight: 600;
-  color: white;
+  color: var(--footer-text);
   margin-bottom: 1rem;
 }
 
@@ -960,7 +970,7 @@ p {
 
 .footer-section h4 {
   margin-bottom: 1.5rem;
-  color: white;
+  color: var(--footer-text);
 }
 
 .footer-section ul {
@@ -972,13 +982,15 @@ p {
 }
 
 .footer-section ul li a {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--footer-text);
+  opacity: 0.7;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .footer-section ul li a:hover {
-  color: white;
+  color: var(--footer-text);
+  opacity: 1;
 }
 
 .footer-bottom {
@@ -986,13 +998,14 @@ p {
   justify-content: space-between;
   align-items: center;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--footer-border);
   flex-wrap: wrap;
   gap: 1rem;
 }
 
 .footer-bottom p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--footer-text);
+  opacity: 0.7;
 }
 
 .footer-social {
@@ -1001,13 +1014,15 @@ p {
 }
 
 .footer-social a {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--footer-text);
+  opacity: 0.7;
   font-size: 1.25rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .footer-social a:hover {
-  color: white;
+  color: var(--footer-text);
+  opacity: 1;
 }
 
 /* Responsive Design */
