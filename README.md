@@ -2,7 +2,7 @@
 
 A modern, responsive website for Unlicode - an Open Source IDE with Unlimited Tokens for Agents Powered by Local LLMs.
 
-## 🚀 Quick Start
+## Quick Start
 
 1. **Install dependencies**
    ```bash
@@ -17,7 +17,7 @@ A modern, responsive website for Unlicode - an Open Source IDE with Unlimited To
 3. **Open browser**
    Navigate to `http://localhost:3000`
 
-## 🚀 Production Deployment
+## Production Deployment
 
 ### Prerequisites
 - Node.js 16+ installed on your server
@@ -58,10 +58,10 @@ npm run validate
 
 **Expected output:**
 ```
-🔍 Validating configuration...
+Validating configuration...
 
-✅ Configuration validation passed!
-📋 Current configuration:
+Configuration validation passed!
+Current configuration:
    Port: 3000
    Environment: production
    CORS Origin: ["https://yourdomain.com"]
@@ -69,9 +69,9 @@ npm run validate
    HTML Cache: 3600s
    Compression Threshold: 1024 bytes
 
-🔒 Production security checks passed
+Production security checks passed
 
-🚀 Configuration is ready!
+Configuration is ready!
 ```
 
 ### 3. Deployment Options
@@ -346,14 +346,14 @@ npm run validate
 pm2 restart unlicode-web
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **Backend**: Node.js + Express
 - **Styling**: Custom CSS with Glassmorphism effects
 - **Icons**: Phosphor Icons
 
-## 📁 Structure
+## Structure
 
 ```
 unlicode-web/
@@ -365,7 +365,7 @@ unlicode-web/
 └── package.json    # Dependencies
 ```
 
-## 🎨 Features
+## Features
 
 - Modern glassmorphism design
 - Responsive mobile-first layout
@@ -377,7 +377,7 @@ unlicode-web/
 - SEO optimized
 - Accessibility focused
 
-## 🔧 Scripts
+## Scripts
 
 - `npm start` - Production server
 - `npm run dev` - Development server with auto-reload
@@ -386,7 +386,7 @@ unlicode-web/
 - `npm run health` - Check server health
 - `npm run clean` - Clean install
 
-## 🧪 Testing
+## Testing
 
 ### Manual Testing Checklist
 1. **Browser Console**: Check for JavaScript errors
@@ -405,21 +405,21 @@ npm run health
 curl http://localhost:3000/health
 ```
 
-## 🚨 Recent Fixes Applied
+## Recent Fixes Applied
 
-- ✅ Fixed JavaScript runtime errors
-- ✅ Added missing DOM elements
-- ✅ Implemented comprehensive error handling
-- ✅ Secured CORS configuration
-- ✅ Enhanced Content Security Policy
-- ✅ Added testimonials and FAQ sections
-- ✅ Improved server error handling
-- ✅ Added graceful shutdown
-- ✅ Enhanced logging and monitoring
-- ✅ Added production deployment guide
-- ✅ Implemented configuration validation
+- Fixed JavaScript runtime errors
+- Added missing DOM elements
+- Implemented comprehensive error handling
+- Secured CORS configuration
+- Enhanced Content Security Policy
+- Added testimonials and FAQ sections
+- Improved server error handling
+- Added graceful shutdown
+- Enhanced logging and monitoring
+- Added production deployment guide
+- Implemented configuration validation
 
-## 🔒 Security Features
+## Security Features
 
 - Helmet.js for security headers
 - Secure CORS configuration
@@ -429,18 +429,18 @@ curl http://localhost:3000/health
 - Production environment validation
 - Secure deployment practices
 
-## 📱 Responsive Design
+## Responsive Design
 
 - Mobile-first approach
 - Touch-friendly interactions
 - Adaptive layouts
 - Optimized for all screen sizes
 
-## 📄 License
+## License
 
 Apache 2.0
 
-## 🐛 Bug Reports
+## Bug Reports
 
 If you encounter any issues:
 1. Check the browser console for errors
@@ -449,10 +449,13 @@ If you encounter any issues:
 4. Run the health check endpoint
 5. Validate configuration with `npm run validate`
 
-## 🆘 Support
+## Support
 
 For deployment issues:
 1. Check the troubleshooting section above
 2. Verify environment configuration
 3. Check server logs and error messages
 4. Ensure all prerequisites are met
+
+## License
+This project is licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) file for details.
