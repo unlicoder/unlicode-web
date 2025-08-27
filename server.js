@@ -11,13 +11,13 @@ const HOST = process.env.HOST || 'localhost';
 
 // Validate critical configuration before starting
 if (!config.corsOrigin) {
-  console.error('❌ Critical Error: CORS_ORIGIN is not configured');
+  console.error('Critical Error: CORS_ORIGIN is not configured');
   console.error('Please set the CORS_ORIGIN environment variable');
   process.exit(1);
 }
 
-console.log('✅ Configuration validation passed');
-console.log(`🌍 CORS Origin: ${JSON.stringify(config.corsOrigin)}`);
+console.log('Configuration validation passed');
+console.log(`CORS Origin: ${JSON.stringify(config.corsOrigin)}`);
 
 // Compression middleware for better performance
 app.use(compression({ threshold: config.compressionThreshold }));
@@ -47,20 +47,20 @@ app.use((req, res, next) => {
 });
 
 // Serve static files
-console.log('🔍 Debug information:');
-console.log('Current working directory:', process.cwd());
-console.log('__dirname:', __dirname);
-console.log('__filename:', __filename);
+console.log('Server initialization details:');
+console.log(`  Working directory: ${process.cwd()}`);
+console.log(`  Directory: ${__dirname}`);
+console.log(`  File: ${__filename}`);
 
 const publicPath = path.resolve(process.cwd(), 'src', 'public');
-console.log(`📁 Serving static files from: ${publicPath}`);
+console.log(`  Static files path: ${publicPath}`);
 
 // Check if the directory exists
 const fs = require('fs');
 if (!fs.existsSync(publicPath)) {
-    console.error(`❌ Error: Directory does not exist: ${publicPath}`);
-    console.error('Current working directory:', process.cwd());
-    console.error('__dirname:', __dirname);
+    console.error(`Error: Directory does not exist: ${publicPath}`);
+    console.error(`  Working directory: ${process.cwd()}`);
+    console.error(`  Directory: ${__dirname}`);
     process.exit(1);
 }
 
@@ -70,10 +70,10 @@ app.use(express.static(publicPath));
 app.get('/', (req, res) => {
   try {
     const indexPath = path.join(publicPath, 'index.html');
-    console.log(`📄 Serving index.html from: ${indexPath}`);
+    console.log(`Serving index.html from: ${indexPath}`);
     
     if (!fs.existsSync(indexPath)) {
-      console.error(`❌ Error: index.html does not exist at: ${indexPath}`);
+      console.error(`Error: index.html does not exist at: ${indexPath}`);
       res.status(500).send('index.html not found');
       return;
     }
@@ -125,7 +125,10 @@ process.on('SIGINT', () => {
 });
 
 app.listen(PORT, HOST, () => {
-  console.log(`🚀 Unlicode website running on http://${HOST}:${PORT}`);
-  console.log(`Environment: ${config.nodeEnv}`);
-  console.log(`CORS Origin: ${JSON.stringify(config.corsOrigin)}`);
+  console.log('='.repeat(50));
+  console.log(`Unlicode Web Server`);
+  console.log(`  URL: http://${HOST}:${PORT}`);
+  console.log(`  Environment: ${config.nodeEnv}`);
+  console.log(`  CORS Origins: ${JSON.stringify(config.corsOrigin)}`);
+  console.log('='.repeat(50));
 });
