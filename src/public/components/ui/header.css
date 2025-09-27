@@ -312,6 +312,7 @@
   align-items: center;
   gap: 0.5rem;
   white-space: nowrap;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
@@ -426,6 +427,7 @@
   align-items: center;
   gap: 0.5rem;
   white-space: nowrap;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 

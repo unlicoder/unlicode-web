@@ -148,50 +148,14 @@ const downloadButton = safeQuerySelector('.download-button');
 
 if (downloadButton) {
   downloadButton.addEventListener('click', (e) => {
-    // Create ripple effect
-    const ripple = document.createElement('span');
-    const rect = downloadButton.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const x = e.clientX - rect.left - size / 2;
-    const y = e.clientY - rect.top - size / 2;
-    
-    ripple.style.width = ripple.style.height = size + 'px';
-    ripple.style.left = x + 'px';
-    ripple.style.top = y + 'px';
-    ripple.classList.add('ripple');
-    
-    downloadButton.appendChild(ripple);
-    
-    // Remove ripple after animation
-    setTimeout(() => {
-      ripple.remove();
-    }, 600);
-    
-    // Add loading state
-    downloadButton.classList.add('loading');
-    downloadButton.innerHTML = '<i class="ph-spinner-gap"></i> Processing...';
-    
-    // Add click effect
-    downloadButton.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-      downloadButton.style.transform = 'scale(1)';
-    }, 150);
-    
-    // Simulate download process (replace with actual download logic)
-    setTimeout(() => {
-      // Remove loading state
-      downloadButton.classList.remove('loading');
-      downloadButton.innerHTML = '<i class="ph-check-circle"></i> Download Complete!';
-      downloadButton.style.background = '#10b981';
-      downloadButton.style.borderColor = '#10b981';
-      
-      // Reset button after a delay
-      setTimeout(() => {
-        downloadButton.innerHTML = '<i class="ph-rocket"></i> Unlock Early Access';
-        downloadButton.style.background = '';
-        downloadButton.style.borderColor = '';
-      }, 2000);
-    }, 2000);
+    // Open Unlicode GitHub repository in new tab immediately (while user interaction is active)
+    const link = document.createElement('a');
+    link.href = 'https://github.com/unlicoder/unlicode';
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
     
     console.log('Download initiated...');
   });
