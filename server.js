@@ -6,8 +6,8 @@ const compression = require('compression');
 const config = require('./config');
 
 const app = express();
-const PORT = config.port;
-const HOST = process.env.HOST || 'localhost';
+const PORT = 3001;
+const HOST = '0.0.0.0';
 
 // Validate critical configuration before starting
 if (!config.corsOrigin) {
