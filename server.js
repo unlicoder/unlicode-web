@@ -3,11 +3,13 @@ const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
 const compression = require('compression');
+const crypto = require('crypto');
+const fs = require('fs');
 const config = require('./config');
 
 const app = express();
-const PORT = 3001;
-const HOST = '0.0.0.0';
+const PORT = 3005;
+const HOST = 'localhost';
 
 // Validate critical configuration before starting
 if (!config.corsOrigin) {
@@ -36,13 +38,37 @@ app.use(cors({
   optionsSuccessStatus: 200 // Some legacy browsers choke on 204
 }));
 
-// Cache control middleware for static assets
+// Enhanced cache control middleware with ETag support
 app.use((req, res, next) => {
+  const filePath = path.join(publicPath, req.url);
+  
+  // Only apply cache headers to static assets
   if (req.url.match(/\.(css|js|png|jpg|jpeg|gif|ico|svg)$/)) {
-    res.setHeader('Cache-Control', `public, max-age=${config.staticCacheMaxAge}`);
+    // Generate ETag based on file stats for cache validation
+    if (fs.existsSync(filePath)) {
+      const stats = fs.statSync(filePath);
+      const etag = `"${stats.mtime.getTime()}-${stats.size}"`;
+      
+      // Set ETag header
+      res.setHeader('ETag', etag);
+      
+      // Check if client has the same version
+      if (req.headers['if-none-match'] === etag) {
+        return res.status(304).end();
+      }
+      
+      // Set cache control with shorter max-age for development
+      const maxAge = config.nodeEnv === 'production' 
+        ? config.staticCacheMaxAge 
+        : config.devStaticCacheMaxAge;
+      res.setHeader('Cache-Control', `public, max-age=${maxAge}, must-revalidate`);
+    }
   } else if (req.url.match(/\.(html)$/)) {
-    res.setHeader('Cache-Control', `public, max-age=${config.htmlCacheMaxAge}`);
+    // HTML files should not be cached aggressively
+    res.setHeader('Cache-Control', `public, max-age=${config.htmlCacheMaxAge}, must-revalidate`);
+    res.setHeader('Pragma', 'no-cache');
   }
+  
   next();
 });
 
@@ -56,7 +82,6 @@ const publicPath = path.resolve(process.cwd(), 'src', 'public');
 console.log(`📁 Serving static files from: ${publicPath}`);
 
 // Check if the directory exists
-const fs = require('fs');
 if (!fs.existsSync(publicPath)) {
     console.error(`❌ Error: Directory does not exist: ${publicPath}`);
     console.error('Current working directory:', process.cwd());

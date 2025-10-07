@@ -33,8 +33,9 @@ module.exports = {
     : ['http://localhost:3000', 'http://127.0.0.1:3000'],
   
   // Cache settings
-  staticCacheMaxAge: 31536000, // 1 year for static assets
-  htmlCacheMaxAge: 3600, // 1 hour for HTML files
+  staticCacheMaxAge: 31536000, // 1 year for static assets in production
+  devStaticCacheMaxAge: 300, // 5 minutes for static assets in development
+  htmlCacheMaxAge: 300, // 5 minutes for HTML files (shorter for better updates)
   
   // Compression settings
   compressionThreshold: 1024, // Only compress responses larger than 1KB
